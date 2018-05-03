@@ -1,0 +1,350 @@
+24/11/58
+==================================================================
+package comeng.sut;
+public class Sample {
+   public static void main(String[] args){
+           sayHello();
+           System.out.println("bye");
+        }
+   public static void sayHello(){
+       System.out.println("Hello World");
+    }
+}
+
+==================================================================
+package comeng.sut;
+public class Sample{
+	pubilc static void main(String[] args){
+		...
+		...
+		System.out.println("Hello "+name);
+		sayBye(name);
+	}
+}
+
+running
+
+Enter your name : Somsak
+Hello Samsak
+Somsak sum 5+4=9
+20
+bye Somsak
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                String name;
+                System.out.print("Enter your name: ");
+                name = input.next();
+		System.out.println("Hello "+name);
+                sum(name,5,4);
+                System.out.println(multiply(5,4));
+		sayBye(name);
+	}
+        public static void sayBye(String s){
+            System.out.println("bye "+s);
+        }
+       public static void sum(String s,int a,int b){
+           System.out.println(s+" sum "+a+"+"+b+"="+(a+b));
+       }
+       public static int multiply(int a,int b){
+           return a*b;
+       }
+}
+==================================================================
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		...
+		...
+		reverse(num);
+		simDigit(num);
+	}
+}
+
+run.
+
+Enter a number : 4456
+4456 is reverse to 6544
+sum digits in 4456 = 19
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num;
+                System.out.print("Enter a number : ");
+                num = input.nextInt();
+                reverse(num);
+		sumDigit(num);
+       }
+        public static void reverse(int a){
+            int b=0;
+            System.out.print(a);
+            while(a>0){
+                b=b*10+a%10;
+                a/=10;
+            }
+            System.out.println(" is revers to " +b);
+        }
+        public static void sumDigit(int a){
+            int b=0;
+            System.out.print("sum digits in "+a);
+            while(a>0){
+                b+=a%10;
+                a/=10;
+            }
+            System.out.println(" = "+b );
+        }
+}
+==================================================================
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num;
+                System.out.print("Enter a number : ");
+                num = input.nextInt();
+                while(isPalindrome(num)==false){
+			....
+		}
+		System.out.println(num + "is palindrome");
+	}
+}
+
+run.
+Enter a number : 123
+Enter a number : 7889
+Enter a number : 44114
+Enter a number : 442244
+442244 is palindrome
+
+code 
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num;
+                System.out.print("Enter a number : ");
+                num = input.nextInt();
+                while(isPalindrome(num)==false){
+                    System.out.print("Enter a number : ");
+                    num = input.nextInt();
+                }
+                System.out.println(num+" is palindrome");
+        }
+        public static boolean isPalindrome(int a){
+            int b=0,c=a;
+            while(a>0){
+                b=b*10+a%10;
+                a/=10;
+            }
+            if(b==c)
+                return true;
+                        
+            else
+                return false;
+        }
+}
+
+code2
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num;
+                System.out.print("Enter a number : ");
+                num = input.nextInt();
+                while(!isPalindrome(num)){
+                    System.out.print("Enter a number : ");
+                    num = input.nextInt();
+                }
+                System.out.println(num+" is palindrome");
+        }
+        public static boolean isPalindrome(int a){
+            int b=0,c=a;
+            while(a>0){
+                b=b*10+a%10;
+                a/=10;
+            }
+           return b==c;
+}
+==================================================================
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+                       มันคือคลาส -->	MyClass.sum(4,5);  <---- เรียกผ่าน MyClass 
+		MyClass.sum(10,20);
+
+	}
+}
+
+run.
+
+9
+30
+60
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		MyClass.sum(4,5);
+		MyClass.sum(10,20);
+		MyClass.sum(10,20,30);
+            }
+          
+}
+สร้าง class ชื่อว่า MyClass ใหม่
+
+package comeng.sut;
+public class MyClass {
+    public static void sum(int a,int b){
+        System.out.println(a+b);
+    }
+    public static void sum(int a,int b,int c){ <-- over loading
+        System.out.println(a+b+c);
+    }
+}
+
+แล้วไปรันที่ class Sample
+
+//ถ้าทำใน cmd run com. MyClass ก่อน แล้วค่อย ไป com. Sample ด้วย (ต้องรันไป MyClass ก่อน)
+d:\project\src\javac -cp ..\build - ..\build Sample.java
+แล้ว run ตามปกติ
+==================================================================
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		...
+		...
+		do{
+			...
+			...
+		}while(num<0||num>10);
+		System.out.printf(num + "! = "+fact(num));
+	}
+}
+
+run.
+
+Enter a number : -2
+Enter a number : 20
+Enter a number : 5
+5!=120
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num;
+		do{
+                    System.out.print("Enter a number : ");
+                    num=input.nextInt();
+		}while(num<0||num>10);
+		System.out.println(num + "! = "+fact(num));
+	}
+    public static long fact(int a){
+        long result = 1;
+        for(int i=1;i<=a;i++){
+            result*=i;
+        }
+        return result;
+    }
+  }
+
+code2
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num;
+		do{
+                    System.out.print("Enter a number : ");
+                    num=input.nextInt();
+		}while(num<0||num>10);
+		System.out.println(num + "! = "+fact(num));
+	}
+    public static long fact(int a){
+        if(a==0||a==1)
+            return 1;
+        else 
+            return a*fact(a-1);
+    }
+  }
+==================================================================
+write a java program using method to operate 2 numbers.
+without using +,-,*,/,%
+
+run.
+Enter the first number : ??
+Enter the second number : ??
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+                int num1,num2,t;
+		System.out.print("Enter first number : ");
+                num1=input.nextInt();
+                System.out.print("Enter second number : ");
+                num2=input.nextInt();
+                System.out.println("Before num1 = "+num1+" num2 ="+num2);
+                for(int i=1;i<=num1;i++){
+                    for(int j=1;j<=num2;j++){
+                        if(i==num1||i==1||j==1||j==num2)
+                            System.out.print("*");
+                        else
+                            System.out.print(" ");
+                    }
+                    System.out.println();
+                }
+                t=num1;
+                num1=num2;
+                num2=t;
+                System.out.println("After num1 = "+num1+" num2 ="+num2);
+                for(int i=1;i<=num1;i++){
+                    for(int j=1;j<=num2;j++){
+                        if(i==num1||i==1||j==1||j==num2)
+                            System.out.print("*");
+                        else
+                            System.out.print(" ");
+                    }
+                    System.out.println();
+                }
+                if(num1%2==0&&num2%2==0)
+                    System.out.println("All even");
+                else if(num1%2==1&&num2%2==1)
+                     System.out.println("All odd");
+                else 
+                     System.out.println("Mix");
+    }
+  }
+
+=========================================================================

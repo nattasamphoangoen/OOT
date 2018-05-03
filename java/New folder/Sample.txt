@@ -1,0 +1,14 @@
+public class Sample {
+    public static void main(String[] args){
+        int[] n = {4,4,8,10,5,9};
+        
+        Robot r1 = new Robot("Feta");
+        Robot r2 = new Robot("Sigma");
+        Student s = new Student();
+        s.setName("Tom");
+        r1.setOwner(s);
+        r2.setOwner(s);
+        r1.findSum(n);
+        r2.printMaxMin(n);
+    }
+}

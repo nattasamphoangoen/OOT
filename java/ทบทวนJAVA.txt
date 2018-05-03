@@ -1,0 +1,171 @@
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[]  args){ 
+        Scanner input = new Scanner(System.in);
+        char c;
+        int a,b,sum=0;
+        
+            System.out.print("Enter the first number : ");
+            a = input.nextInt();
+            System.out.print("Enter the second number : ");
+            b = input.nextInt();
+            System.out.print("Enter operator : ");
+            c = input.next().charAt(0);
+            
+            if(c == '+')
+                System.out.println(a + " + " + b + " = " + (a+b));
+            else if(c == '*')
+                System.out.println(a + " * " + b + " = " + (a*b));
+            else
+                System.out.println("no operation ");
+    }
+}
+
+Runing
+Enter the first number : 5
+Enter the second number : 2
+Enter operator : +
+5+2=7 
+
+Enter the first number : 5
+Enter the second number : 2
+Enter operator : *
+5*2=10
+
+Enter the first number : 5
+Enter the second number : 2
+Enter operator : #
+no operation 	
+
+=========================================================
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[]  args){ 
+        Scanner input = new Scanner(System.in);
+        double a,c = 1;
+        int b;
+        
+            System.out.print("Enter the first number : ");
+            a = input.nextDouble();
+            System.out.print("Enter the second number : ");
+            b = input.nextInt();
+            
+            for(int i=0;i<b;i++){
+                c *= a;
+            }
+            System.out.println(a + " ^ " + b + " = " + c);
+            
+    }
+}
+
+Runing
+Enter the first number : 1.5
+Enter the second number : 2
+1.5 ^ 2 = 2.25
+
+Enter the first number : 1.5
+Enter the second number : 2
+1.5 ^ 3 = 3.375
+
+===========================================================
+public class NewClass {
+    public static void main(String[]  args){ 
+        
+            max(3,9);
+            max(4,2);
+            max(1,3,2);
+            
+    }
+    public static void max(int a,int b){ 
+        int max;
+        max = a>b?a:b;
+        System.out.println(max);
+    }
+    public static void max(int a,int b,int c){ 
+        int max;
+        max = a>b?a:b;
+        max = c>max?c:max;
+        System.out.println(max);
+    }
+}
+
+Runing
+9
+4
+3
+==========================================================
+public class NewClass {
+    public static void main(String[]  args){ 
+        
+            System.out.println(sum(1,2));
+             System.out.println(sum(1,2,3,4,5));
+              System.out.println(sum(12345));
+    }
+    public static int sum(int a,int b){ 
+        return a+b;
+    }
+    public static int sum(int a,int b,int c,int d,int e){
+        return sum(sum(sum(a,b),sum(c,d)),e);
+    }
+    public static int sum(int a){
+        int sum=0;
+        while(a>0){
+            sum = sum + a%10;
+            a /=10;
+        }
+        
+        return sum;
+    }
+}
+Runing
+3
+15
+15
+========================================================
+public class NewClass {
+    public static void main(String[]  args){ 
+            int[]n = {9,15,34,2,100};
+            
+            sum(n[0],n[n.length-1]);
+            sum(n);
+            System.out.println(max(n));
+            System.out.println(min(n));
+            sum(max(n),min(n));
+            
+    }
+    public static void sum(int a,int b){ 
+        System.out.println(a+b);
+        
+    }
+    public static void sum(int[]a){ 
+        int sum=0;
+        for(int i=0;i<a.length;i++){
+            sum += a[i];
+        }
+        System.out.println(sum);
+    }
+    public static int max(int[]a){ 
+        int max=a[0];
+        for(int i=1;i<a.length;i++){
+            if(a[i]>max)
+                max = a[i];
+        }
+        return max;
+    }
+    public static int min(int[]a){ 
+        int min=a[0];
+        for(int i=1;i<a.length;i++){
+            if(a[i]<min)
+                min = a[i];
+        }
+        return min;
+        
+    }
+}
+
+Runing
+109
+160
+100
+2
+102

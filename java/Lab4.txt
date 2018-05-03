@@ -1,0 +1,195 @@
+Array
+
+	in C language
+	int num[10];
+ทำให้มีตัวแปรแบบเลขจำนวนเต็ม 10 ตัวแปรคือ num[0] ,..., num[9]
+	
+	in Java
+	int[] num = new int[10];
+ทำให้มีตัวแปรแบบเลขจำนวนเต็ม 10 ตัวแปรคือ num[0] ,..., num[9]
+และทุกตัวแปรมีค่าเริ่มเป็น 0
+==============================================
+กำหนด b เป็นอาเรย์ของ  boolean  และมีสมาชิก 5 ตัว จงพิมพ์สมาชิกทุกตัวของ b 
+ออกมาในบรรทัดเดียว สมาชิกแต่ละตัวคั่นด้วยช่องว่าง
+public class LAB4 {
+   public static void main(String[] args){
+   boolean[] b = new boolean[5];
+    for(int i=0 ; i<5 ;i++){
+        System.out.print(b[i] + " ");
+    }
+   }
+}
+===============================================
+**ถ้าไม่อยากนับจำนวนสมาชิกใน Array ให้พิมพ์ num.length(จะนับจำนวนสมาชิกให้เรา)
+===============================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+   
+   for(int i=0 ; i<5 ;i++){
+       System.out.print(num[i]+" ");
+   }
+   System.out.print("\n");
+   for(int i=4 ; i>=0 ;i--){
+       System.out.print(num[i]+" ");
+   }
+    }
+}
+Running
+3 5 2 1 4
+4 1 2 5 3
+===============================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+   for(int i=4 ; i>=0 ;i--){
+       System.out.print(num[i]+" ");
+       
+   
+   }
+    }
+}
+
+Running
+4 1 2 5 3
+================================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+   int max = -1;
+   
+   for(int i=0 ; i<num.length;i++){
+     if(num[i] > max){
+         max = num[i];
+     }
+    }
+   System.out.print("max = " + max);
+ }
+}
+
+Running
+max = 5
+=================================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+** int max = num[0];
+   
+** for(int i=1 ; i<num.length;i++){
+     if(num[i] > max){
+         max = num[i];
+     }
+    }
+   System.out.print("max = " + max);
+ }
+}
+==================================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+   int sum=0;
+   
+   for(int i=0 ; i<num.length;i++){
+     sum += num[i];
+     }
+    
+   System.out.print("Sum all members = " + sum);
+ }
+}
+
+Running
+sum all members = 15
+==================================================
+รวม Array กับ methon
+==================================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+   
+   
+   System.out.print("Sum all members = " + sum(num));
+ }
+    public static int sum(int[] n){
+       int total = 0;
+       
+       for(int i = 0 ;i<n.length ; i++){
+           total += n[i];
+       }
+       return total;
+    }
+}
+
+Running
+sum all members = 15
+==================================================
+public class LAB4 {
+    public static void main(String[] args){
+   int[] num = {3,5,2,1,4};
+   
+   
+   System.out.println(CountOdd(num));
+    System.out.println(SumOdd(num));
+ }
+    public static int CountOdd(int[] n){
+       int count = 0;
+       
+       for(int i = 0 ;i<n.length ; i++){
+           if(n[i]%2==1){
+               count++;
+           }
+       }
+       return count;
+    }
+     public static int SumOdd(int[] n){
+       int sum = 0;
+       
+       for(int i = 0 ;i<n.length ; i++){
+           if(n[i]%2==1){
+               sum += n[i];
+           }
+       }
+       return sum;
+}
+}
+Running
+3   ** นับจำนวนเลขคี่
+9   ** ผลรวมของเลขคี่
+==================================================
+String
+==================================================
+public class LAB4 {
+    public static void main(String[] args){
+   String[]s = {"ABC","XYZ","LK"};
+   printString(s);
+}
+    public static void printString(String[] m){
+        for(String d : m)
+            System.out.println(d);
+    }
+}
+==================================================
+public class LAB4 {
+    public static void main(String[] args){
+    int[] num = {352,14,9,1224};
+        for(int d:num){
+            System.out.println(d + " = " + countDigit(d) + "-digit ");
+        }
+
+    }
+    public static int countDigit(int x){
+        int count=0;
+        while(x>0){
+            count++;
+            x/=10;
+        }
+        return count;
+} 
+}
+
+Running
+352 = 3-digit 
+14 = 2-digit 
+9 = 1-digit 
+1224 = 4-digit 
+==================================================
+

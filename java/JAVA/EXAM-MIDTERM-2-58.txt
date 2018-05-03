@@ -1,0 +1,161 @@
+//////////EXAM1\\\\\\\\\\
+//class main
+==========================================
+Running :
+Somsak is 19 years old.
+Somchai is 20 years old.
+NOKIA series 524 is owned by Somsak
+SAMSANG series Note2 is owned by Somchai
+==========================================
+package comeng.sut;
+public class Sample {
+    public static void main(String[] args){
+        Student s1 = new Student("Somsak",19);
+        Student s2 = new Student("Somchai");
+        s2.setAge(18);
+        MobilePhone m1 = new MobilePhone("NOKIA","524");
+        MobilePhone m2 = new MobilePhone("SAMSANG","Note2");
+        s2.setAge(20);
+        m1.setOwner(s1);
+        m2.setOwner(s2);
+        System.out.println(s1.getName() + " is " +s1.getAge() + " years old." );
+        System.out.println(s2.getName() + " is " +s2.getAge() + " years old.");
+        display(m1);
+        display(m2);
+    }
+    public static void display(MobilePhone m){
+        System.out.println(m.getBrand() + " series " +m.getSerie() + " is owned by " +m.getOwner().getName());
+    }
+}
+//class student
+package comeng.sut;
+public class Student {
+    private String name;
+    private int age;
+    public Student(String name,int age){       
+       this.name = name;
+       this.age = age;
+    }
+    public Student(String name){       
+       this.name = name;
+    }
+    public String getName(){
+        return this.name; 
+    }
+    public void setAge(int age){
+            this.age = age;
+    }
+    public int getAge(){
+        return this.age; 
+    }
+}
+//class MobilePhone
+package comeng.sut;
+public class MobilePhone {
+    private String brand;
+    private String serie;
+    private Student owner;
+    public MobilePhone(String B,String S){
+        this.brand = B;
+        this.serie = S;
+    }
+    public String getBrand(){
+        return this.brand;
+    }
+    public String getSerie(){
+        return this.serie;
+    }
+    public void setOwner(Student owner){
+        this.owner = owner;
+    }
+    public Student getOwner(){
+        return this.owner;
+    }
+}
+/////EXAM2\\\\\
+==============================
+Running :
+5
+6
+15
+9
+1
+2 3 4 5 6 7 8
+===============================
+package comeng.sut;
+public class Sample {
+    public static void main(String[] args){
+        int[] s = {2,3,1,4,5,9,6,7,8};
+        sum(s,2);
+        sum(s,3);
+        sum(s,5);
+        System.out.println(max(s));
+        System.out.println(min(s));
+        printNotMaxMin(s,max(s),min(s));
+    }
+    public static void sum(int[] n,int a){
+        int total=0,i;
+        for(i=0;i<a;i++)
+            total+=n[i];
+        System.out.println(total);
+    }
+    public static int max(int[] n){
+        int m=n[0],i;
+        for(i=1;i<n.length;i++)
+            m = n[i] > m ? n[i] : m;
+        return m;
+    }
+    public static int min(int[] n){
+        int m=n[0],i;
+        for(i=1;i<n.length;i++)
+            m = n[i] < m ? n[i] : m;
+        return m;
+    }
+    public static void printNotMaxMin(int[] n,int a,int b){
+        for(int i=0;i<n.length;i++){
+            if(n[i]!=a && n[i]!=b)
+                System.out.print(n[i]+" ");
+        }
+    }
+}
+/////EXAM3\\\\\
+package comeng.sut;
+=============================================
+Running:
+Enter a number(1-999): 345
+345 is mix even and odd
+
+Enter a number(1-999): 222
+222 is all even
+
+Enter a number(1-999): 333
+333 is all odd
+
+Enter a number(1-999): 243
+243 is mix even and odd
+==============================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        int num,n,c1=0,c2=0;
+        do{
+            System.out.print("Enter a number(1-999): ");
+            num = input.nextInt();
+        }while(num<1||num>999);
+        n=num;
+        while(num>0){
+            if((num%10)%2==0)
+                c1++;
+            else 
+                c2++;
+            num/=10;
+        }
+        if(c1==0)
+            System.out.println(n + " is all odd");
+        else if(c2==0)
+            System.out.println(n + " is all even");
+        else
+            System.out.println(n + " is mix even and odd");
+    }
+}

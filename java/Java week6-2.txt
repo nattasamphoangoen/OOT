@@ -1,0 +1,415 @@
+1.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+       Foo f2 = new Foo("Hello");
+    }
+    
+}
++++++++++++++++++
+public class Foo {
+    public Foo(){    
+        System.out.println("Foo  default");
+    }
+    public Foo(int f){ 
+        System.out.println("Foo with int");
+    }
+    public Foo(String s){   ///   con.เรียกกันต้องใช้ this(_); แล้วต้องห้ามมีคำสั่งอื่นอยู่ก่อน
+        this(9);    
+    }
+}
+
+
+================
+run:
+Foo with int
+
+
+
+
+
+----------------------------------
+2.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+       Foo f2 = new Foo("Hello");
+    }
+    
+}
++++++++++++++++++
+public class Foo {
+    public Foo(){    
+        System.out.println("Foo  default");
+    }
+    public Foo(int f){ 
+        System.out.println("Foo with int");
+    }
+    public Foo(String s){   ///   con.เรียกกันต้องใช้ this(_); แล้วต้องห้ามมีคำสั่งอื่นอยู่ก่อน
+        this();    
+    }
+}
+
+
+==============
+run:
+Foo default
+
+
+---------------------------------
+3.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        Boo b = new Boo();
+    }
+    
+}
+
++++++++++++++++++++
+public class Foo {
+    public Foo(){    
+        System.out.println("Foo  default");
+    }
+    public Foo(int f){ 
+        System.out.println("Foo with int");
+    }
+    public Foo(String s){          ///   con.เรียกกันต้องใช้ this(_); แล้วต้องห้ามมีคำสั่งอื่นอยู่ก่อน
+        this();   
+    }
+}
++++++++++++++++++
+public class Boo extends Foo{
+    public Boo(){
+	super();
+        System.out.println("Boo default");
+    }
+}
+
+
+
+=====================
+run:
+Foo default
+Boo default
+
+
+
+-----------------------------------------------
+4.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        Boo b = new Boo();
+    }
+    
+}
+
++++++++++++++++++++
+public class Foo {
+    public Foo(){    
+        System.out.println("Foo  default");
+    }
+    public Foo(int f){ 
+        System.out.println("Foo with int");
+    }
+    public Foo(String s){          ///   con.เรียกกันต้องใช้ this(_); แล้วต้องห้ามมีคำสั่งอื่นอยู่ก่อน
+        this();   
+    }
+}
++++++++++++++++++
+public class Boo extends Foo{
+    public Boo(){
+	super(9);  /// ประกาศข้างในsuper();เรียกแม่ตัวอื่น
+
+        System.out.println("Boo default");
+    }
+}
+
+
+
+=====================
+run:
+Foo with int
+Boo default
+
+
+
+
+--------------------------------------------
+5.)
+public class JavaApplication1 {    
+    public static void main(String[] args) {
+        Caz c = new Caz();
+    }
+    
+}
++++++++++++++
+public class Foo {     /// class Mom
+    public Foo(){    
+        System.out.println("Foo  default");
+    }
+    public Foo(int f){ 
+        System.out.println("Foo with int");
+    }
+    public Foo(String s){          ///   con.เรียกกันต้องใช้ this(_); แล้วต้องห้ามมีคำสั่งอื่นอยู่ก่อน
+        this();   
+    }
+}
++++++++++++
+public class Boo extends Foo{  ////  class ลูก
+    public Boo(){
+        super();
+        System.out.println("Boo default");
+    }
+}
++++++++++++++
+public class Caz extends Boo{  ///// class หลาน
+    public Caz(){
+        System.out.println("Caz default");
+    }
+}
+
+==================
+run:
+Foo default
+Boo default
+Caz default
+
+
+----------------------------
+6.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        MachineC c= new MachineC(3,5);
+        MachineB b= new MachineB("abc");
+        MachineA a= new MachineA(1.23);
+    }
+    
+}
+++++++++++++++++++++++
+public class MachineA {   //// class Mom
+    public MachineA(){
+        System.out.println("hello");
+    
+    }
+    public MachineA(double b){
+        this();
+        System.out.println(b);
+    }
+}
+++++++++++++++++++++++
+public class MachineB extends MachineA{   //// B เป็น class ลูกของ  A
+    public MachineB(){
+        System.out.println("hi");
+    }
+    public MachineB(String s){
+        super();
+        System.out.println(s);
+    }
+}
+++++++++++++++++++++++++++
+public class MachineC extends MachineB{    //// C เป็น class หลานของ  B
+    public MachineC(int a,int b){
+        super();
+        System.out.println(a+b);
+    }
+}
+
+
+=========================
+run:
+hello
+hi
+8
+hello
+abc
+hello
+1.23
+
+
+
+-------------------------------------
+**** ที่classลูกแดงเพราะว่า classแม่ยังไม่ได้เขียน con. คือ public .....(){
+						  }
+
+
+
+-------------------------------------------------
+7.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        CalculatorA a = new CalculatorA("CASIO","FX350");
+        CalculatorB b = new CalculatorB("SHARP","s300");
+        System.out.println(a.getBrand()+" : "+a.getSeries());
+        System.out.println(b.getBrand()+" : "+b.getSeries());
+    }
+    
+}
++++++++++++++++++++++++++++++++++++
+public class CalculatorA {
+    private String brand;
+    private String series;
+    
+    public CalculatorA(){
+        
+    }
+    public CalculatorA(String a,String b){
+        this.brand = a;
+        this.series = b;
+    }
+    public String getBrand(){
+        return brand;
+    }
+    public String getSeries(){
+        return series;
+    }
+}
+++++++++++++++++++++++++++++++++++++
+public class CalculatorB extends CalculatorA{
+    public CalculatorB(String a,String b){
+        super(a,b);
+    }
+}
+
+
+=====================================
+run:
+CASIO : FX350
+SHARP : s300
+
+
+
+----------------------------------------------------
+8.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        CalculatorA a = new CalculatorA("CASIO","FX350");
+        CalculatorB b = new CalculatorB("SHARP","s300");
+        System.out.println(a.getBrand()+" : "+a.getSeries());
+        System.out.println(b.getBrand()+" : "+b.getSeries());
+        a.Calculate(3,5,'+');
+        b.Calculate(3,5,'+');
+    }
+    
+}
++++++++++++++++++++++++++++++++++++++++++
+public class CalculatorA {
+    private String brand;
+    private String series;
+    
+    public CalculatorA(){
+        
+    }
+    public CalculatorA(String brand,String series){
+        this.brand = brand;
+        this.series = series;
+    }
+    public String getBrand(){
+        return brand;
+    }
+    public String getSeries(){
+        return series;
+    }
+    public void Calculate(int a,int b,char ch){
+        int answer = 0;
+        switch(ch){
+            case '+' : answer = a + b;break;
+            case '-' : answer = a - b;break;
+            case '*' : answer = a * b;break;
+            case '/' : answer = a / b;break;    
+        }
+        System.out.println(brand+" series"+series+" calculate = "+answer);
+    }
+}
+++++++++++++++++++++++++++++++++++++++++++++
+public class CalculatorB extends CalculatorA{
+    public CalculatorB(String brand,String series){
+        super(brand,series);
+        
+    }
+}
+
+
+
+============================
+run:
+CASIO : FX350
+SHARP : s300
+CASIO seriesFX350 calculate = 8
+SHARP seriess300 calculate = 8
+
+
+
+----------------------------------
+9.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        CalculatorA a = new CalculatorA("CASIO","FX350");
+        CalculatorB b = new CalculatorB("SHARP","s300");
+        System.out.println(a.getBrand()+" : "+a.getSeries());
+        System.out.println(b.getBrand()+" : "+b.getSeries());
+        a.Calculate(10,5,'-');
+        b.Calculate(5,4,'^');
+    }
+    
+}
+++++++++++++++++++++++++++++++++
+public class CalculatorA {
+    private String brand;
+    private String series;
+    
+    public CalculatorA(){
+        
+    }
+    public CalculatorA(String brand,String series){
+        this.brand = brand;
+        this.series = series;
+    }
+    public String getBrand(){
+        return brand;
+    }
+    public String getSeries(){
+        return series;
+    }
+    public void Calculate(int a,int b,char ch){
+        int answer = 0;
+        switch(ch){
+            case '+' : answer = a + b;break;
+            case '-' : answer = a - b;break;
+            case '*' : answer = a * b;break;
+            case '/' : answer = a / b;break;    
+        }
+        System.out.println(brand+" series "+series+" calculate = "+answer);
+    }
+}
++++++++++++++++++++++++++++++
+public class CalculatorB extends CalculatorA{
+    public CalculatorB(String brand,String series){
+        super(brand,series);
+    }
+    public void Calculate(int a, int b, char ch){
+        int answer;
+        if(ch=='+'||ch=='-'||ch=='*'||ch=='/'){
+            super.Calculate(a, b, ch);
+        }
+        else if(ch=='^'){
+            answer =1;
+            for(int i=1;i<=b;i++){
+                answer *= a;
+            }
+            System.out.println(getBrand()+" series "+getSeries()+" calculate = "+answer);
+        }
+    }
+}
+
+
+============================
+run:
+CASIO : FX350
+SHARP : s300
+CASIO series FX350 calculate = 5
+SHARP series s300 calculate = 625
+
+
+
+
+
+
+*** พฤหัส หน้าสอบ เรื่องนี้แหละ ****

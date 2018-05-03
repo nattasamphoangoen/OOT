@@ -1,0 +1,26 @@
+public class Sample {
+    public static void main (String[] args){
+        int []n={8,1,3,10,5,20,2};
+        int min,max;
+        int firstmax,secondmax;
+        firstmax=n[0];
+        
+        for(int i=1;i<n.length;i++){
+            if(n[i]>firstmax){
+                firstmax=n[i];
+            }
+        }
+            if(n[0]!=firstmax)
+                secondmax=n[0];
+            else
+                 secondmax=n[1];
+            for(int i=1;i<n.length;i++){
+                if(n[i]>secondmax&&n[i]!=firstmax){
+                secondmax=n[i];
+                }
+            }
+            System.out.print("second max ="+secondmax);
+    }
+       
+    
+}

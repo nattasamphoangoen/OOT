@@ -1,0 +1,389 @@
+15/12/2558
+==================================================================
+แยกนกกับปลาด้วย คุณลักษณะ พฤติกรรม
+
+นก 			ปลา	
+คุณลักษณะ (attribute)	คุณลักษณะ (attribute)
+มีปีก (wing)		มีครับ	
+มีปลาแบบนก (beak)		มีเกร็ด
+มีขนแบบขนนก (feather)	มีเหงือก
+
+พฤติกรรม (behavior)		พฤติกรรม (behavior)
+บีนได้			อาศัยอยู่ในน้ำ
+ออกลูกเป็นไข่			หายใจด้วยเหงือก
+
+แม่แบบที่เอาไว้สร้างวัตถุเชิง OO = class
+คุณลักษณะ = data
+พฤติกรรม = impement
+
+class bird:
+package oot; 
+public class Bird {
+   
+        String color; คุณลักษณะ
+        String size;
+        double weight;
+      
+   
+        public void fly(){ ถูกเรียกจาก object(b1,b2) จะไม่ใช่ static ถูกเรียกจาก main ต้องใส่ static
+            System.out.println("A "+ size + " "+ color + " bird is flying"); พฤติกรรม
+        }
+    
+}
+
+class main:
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Bird b1 = new Bird();
+        Bird b2 = new Bird();
+        b1.color = "black";
+        b1.size = "small";
+        b1.weight = 0.02;
+        b2.color = "white";
+        b2.size = "big";
+        b2.weight = 3.0;
+        System.out.println("A "+ b1.size + " " + b1.color + " bird " + " weight "+ b1.weight + " kilograms");
+        System.out.println("A "+ b2.size + " " + b2.color + " bird " + " weight "+ b2.weight + " kilograms");
+        b1.fly();
+        b2.fly();
+    }
+}
+
+run.
+A small black bird  weight 0.02 kilograms
+A big white bird  weight 3.0 kilograms
+A small black bird is flying
+A big white bird is flying
+============================================================================================================
+There are 2 students
+The characteristic of each
+Student
+name : String
+age : int
+The behavior of each student register()
+When register works it print <name> + " is registering"
+
+run.
+Somsak is 19 years old.
+Somchai is 20 years old.
+Somsak is registering.
+Somchai is registering.
+Dang is barking.
+Dang is biting Somsak.
+
+code
+//Student class:
+package oot; 
+
+public class Student {
+   
+        String name;
+        int age;
+ 
+        public void regis(){
+            System.out.println(name + " is registering.");
+        }
+}
+
+//Dog class
+package oot;
+public class Dog {
+    String name;
+    
+    public void bark(){
+    System.out.println(name + " is barking.");
+    }
+    public void bite(Student x){
+        System.out.println(name + " is biting " + x.name + ".");
+    }
+    
+}
+
+
+//class main:
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        Student s2 = new Student();
+        s1.name = "Somsak";
+        s2.name = "Somchai";
+        s1.age = 19;
+        s2.age = 20;
+        System.out.println(s1.name + " is " + s1.age + " years old.");
+        System.out.println(s2.name + " is " + s2.age + " years old.");
+        s1.regis();
+        s2.regis();
+	Dog d = new Dog();
+        d.name = "Dang";
+        d.bark();
+        d.bite(s1);
+    }
+}
+==========================================================================================================
+There is 1 student
+attribute of student
+name : String
+behavior
+move(Box b);
+
+run.
+A box size = 3x3x2
+John is moving a box volume = 18
+
+code
+//class box:
+package oot;
+public class Box {
+    int width;
+    int length;
+    int height;
+    
+    public int getVolume(){
+        return width*length*height;
+    }
+    
+}
+
+//class student:
+package oot; 
+
+public class Student {
+   
+        String name;
+ 
+        public void move(Box b){
+            
+            System.out.println(name + " is moving a box volume = " + b.getVolume());
+        }
+}
+
+//class main:
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.name = "John";
+        Box b = new Box();
+        b.width = 3;
+        b.height = 2;
+        b.length = 3;
+        System.out.println("A box size = "+ b.width + "x"+b.length + "x"+b.height);
+        s1.move(b);
+    }
+}
+==========================================================================================================
+package oot;
+public class Student {
+   
+        private String name; //ซ่อนข้อมูล class อื่น เอาไปใช้ไม่ได้ ต้องทำผ่าน method แทน
+        private int age;
+}
+
+แบบนี้
+package oot;
+public class Student {
+   
+        private String name;
+        private int age;
+        
+        public void setAge(int a){ <----method ประเภท setter void
+            if(a>0)
+                age = a;
+        }
+	public int getAge(int a){  <----method ประเภทแสดง ตามประเภทของตัวนั้น int string boolean
+            return age;
+        }
+}
+
+run
+John is 19 years old.
+
+code
+//class main:
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.setName("John");
+        s1.setAge(19);
+        System.out.println(s1.getName()+" is "+s1.getAge() + " years old.");
+        
+    }
+}
+
+//class student:
+package oot; 
+
+public class Student {
+   
+        private String name;
+        private int age;
+        
+        public void setAge(int age){
+            if(age>0)
+                this.age = age;
+        }
+         public int getAge(){
+            return this.age;
+        }
+         public void setName(String name){
+                this.name = name;
+        }
+         public String getName(){
+            return this.name;
+        }
+}
+==========================================================================================================
+public class Oot {
+    public static void main(String[] args) {
+        Robot r1 = new Robot();
+        Robot r2 = new Robot();
+        r1.setSeries("AJ123");
+        r2.setSeries("AJ124");
+        System.out.println(r1.getSeries()+" and "+r2.getSeries());
+        r1.sum(1,2,3);
+        r2.sum(3,4);
+        
+    }
+}
+
+run
+AJ123 and AJ124
+AJ123 sum = 6
+AJ124 sum = 7
+
+code
+
+//class robot:
+package oot;
+public class Robot {
+    private String series;
+    
+    public void setSeries(String series){
+        this.series = series;
+    }
+    public String getSeries(){
+        return this.series;
+    }
+    public void sum(int a, int b,int c){
+        int s = a+b+c;
+        System.out.println(series + " sum = "+s);
+    }
+    public void sum(int a,int b){
+        int s = a+b;
+        System.out.println(series + " sum = "+s);
+    }
+}
+
+//class main:
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Robot r1 = new Robot();
+        Robot r2 = new Robot();
+        r1.setSeries("AJ123");
+        r2.setSeries("AJ124");
+        System.out.println(r1.getSeries()+" and "+r2.getSeries());
+        r1.sum(1,2,3);
+        r2.sum(3,4);
+        
+    }
+}
+==========================================================================================================
+public Robot(){ <--- constructer มีชื่อเหมือนกับ class คล้ายกับ method แต่ไม่ใช่ จะทำงานตอนเรียก new object (Robot r1 = new Robot();) 
+		              สามารถ overloading ได้
+        
+    }
+public Robot (String s){ <---- constructer overloading จะทำงานตอนเรียก new object (Robot r2 = new Robot("dfsefd");)
+			       ส่วนใหญ่เอาไว้ set ค่า
+        
+    }
+==========================================================================================================
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Calculator c1 = new Calculator();
+        Calculator c2 = new Calculator("SUMSUNG","A8");
+        
+        c1.setBrand("CASIO");
+        c1.setSeries("C13");
+        System.out.print(c1.getBrand()+" series "+c1.getSeries);
+        System.out.print(c2.getBrand()+" series "+c2.getSeries);
+        
+        c1.findMax(new int[]{1,4,2,9,5,3});
+        c1.findMax(3,4,5,2);
+    }
+}
+
+run
+CASIO series C13
+SUMSUNG series A8
+CASIO C13 find maximum = 9
+SUMSUNG A8 find maximum = 9
+
+code
+//class calculator:
+package oot;
+public class Calculator {
+    private String brand;
+    private String series;
+    private Student owner; 
+    public Calculator(){}
+    public Calculator(String a,String b){
+        this.brand = a;
+        this.series = b;
+    }
+    
+    public void setBrand(String brand){
+        this.brand = brand;
+    }
+    public String getBrand(){
+        return this.brand;
+    }
+    public void setSeries(String series){
+        this.series = series;
+    }
+    public String getSeries(){
+        return this.series;
+    }
+    public void setOwner(Student owner){
+        this.owner = owner;
+    }
+    public Student getOwner(){
+        return this.owner;
+    }
+    public void findMax(int[] n){
+        int max=n[0];
+        for(int i=1;i<n.length;i++){
+            if(n[i]>max)
+                max=n[i];
+        }
+        System.out.println(brand+" "+series + " find maximum = "+max);
+    }
+    public void findMax(int a,int b,int c,int d){
+         	เหลือๆๆๆ
+    }
+    
+}
+
+//class main:
+package oot;
+public class Oot {
+    public static void main(String[] args) {
+        Calculator c1 = new Calculator();
+        Calculator c2 = new Calculator("SUMSUNG","A8");
+        Student s= new Student();
+        s.setName("John");
+        c1.setOwner(s);
+        c1.setBrand("CASIO");
+        c1.setSeries("C13");
+        System.out.println(c1.getBrand()+" series "+c1.getSeries());
+        System.out.println(c2.getBrand()+" series "+c2.getSeries());
+        System.out.println(c1.getBrand()+" series "+c1.getSeries()+" is owner by "+c1.getOwner().getName());
+       c1.findMax(new int[]{1,4,2,9,5,3});
+       c1.findMax(3,4,5,2);
+    }
+}
+==========================================================================================================

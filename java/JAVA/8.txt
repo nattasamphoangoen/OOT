@@ -1,0 +1,576 @@
+5/1/59
+=======================================================================================
+access modifier
+
+acess level		keyword
+
+public			public		can call everywhere
+protected		protected	can call in defferent package only inheritance
+default			no keyword	can call in the same package
+private			private		can call in the sam class
+
+¤¹ÅĞ package µéÍ§ import µéÍ§à»ç¹ public ¶Ö§¨ĞàÃÕÂ¡ä´é
+äÁèÁÕ¤ÓË¹éÒ void ¨Ğà»ç¹ defult ·Ñ¹·Õ
+protected àÃÕÂ¡ä´éµèÒ§¤ÅÒÊàÁ×èÍà»ç¹áÁèÅÙ¡¡Ñ¹ Ê§Ç¹äÇéãªéá¤èÅÙ¡¢Í§ÁÑ¹·ÕèÍÂÙèµèÒ§ package à·èÒ¹Ñé¹ µÑÇÍ×è¹ãªéäÁèä´é 
+
+Ex.
+//class main
+package comeng.sut;
+import comeng.sut2.Boo;
+public class Sample {
+    public static void main(String[] args) {
+        Foo f = new Foo();
+        f.doFoo();
+	Boo b = new Boo();
+        b.doBoo();
+    }
+    
+}
+
+//class Foo
+package comeng.sut;
+public class Foo {
+    public void doFoo(){
+        System.out.println("doFoo");
+    }
+}
+
+//package comeng.sut2
+package comeng.sut2;
+public class Boo {
+    public void doBoo(){
+        System.out.println("doBoo");
+    }
+}
+=======================================================================================
+public class Parrot extends Bird
+
+Bird ¤ÅÒÊáÁè Parrot ¤ÅÒÊÅÙ¡
+¶éÒáÁèà»ç¹ private ¨ĞÊ×º·Í´äÁèä´é defult Ê×º·Í´ä´é
+protected àÃÕÂ¡ä´éµèÒ§ package àÁ×èÍà»ç¹áÁèÅÙ¡¡Ñ¹ Ê§Ç¹äÇéãªéá¤èÅÙ¡¢Í§ÁÑ¹·ÕèÍÂÙèµèÒ§ package à·èÒ¹Ñé¹ µÑÇÍ×è¹ãªéäÁèä´é 
+
+//class main 
+package comeng.sut;
+import comeng.sut2.Boo;
+public class Sample {
+    public static void main(String[] args) {
+        Eagle e = new Eagle();
+        e.fly();
+        Parrot p = new Parrot();
+        p.fly();
+    }
+    
+}
+
+//class Bird
+package comeng.sut;
+public class Bird {
+    public void fly(){
+        System.out.println("Flying");
+    }
+}
+
+
+//class Parrot
+package comeng.sut;
+public class Parrot extends Bird {
+    
+}
+
+
+//class Eagle
+package comeng.sut;
+public class Eagle extends Bird {
+    
+}
+
+
+//àÁ×èÍÂéÒÂ package
+
+//class main
+package comeng.sut;
+import comeng.sut2.Parrot;
+import comeng.sut2.Eagle;
+import comeng.sut2.Boo;
+public class Sample {
+    public static void main(String[] args) {
+        Eagle e = new Eagle();
+        e.fly();
+        Parrot p = new Parrot();
+        p.fly();
+    }
+    
+}
+
+
+//class Bird
+package comeng.sut;
+public class Bird {
+    protected void fly(){
+        System.out.println("Flying");
+    }
+}
+
+
+//class Eagle
+package comeng.sut2;
+import comeng.sut.Bird;
+public class Eagle extends Bird {
+    
+}
+
+
+//class Paroot
+package comeng.sut2;
+import comeng.sut.Bird;
+public class Parrot extends Bird {
+    
+}
+=======================================================================================
+Class B is subclass of A
+class A is superclass of C 
+
+method doA() is in class A
+method doB() is in class B
+method doC() is in class C
+
+class A and B is in the package comeng.sut
+calss C is in the package comeng.sut2
+
+package comeng.sut;
+public class Sample{
+	public static void main(String[] args){
+		A a = new A(); 
+		B b = new B();
+		C c = new C();
+		a.doA();
+		b.doA();
+		c.doA();
+		b.doB();
+		c.doC();
+	}
+}
+
+run.
+doA
+doA
+doA
+doB
+doC
+
+code
+
+//class main
+package comeng.sut;
+import comeng.sut2.C;
+public class Sample {
+    public static void main(String[] args) {
+        A a = new A(); 
+	B b = new B();
+	C c = new C();
+	a.doA();
+	b.doA();
+	c.doA();
+	b.doB();
+	c.doC();
+    }
+}
+
+//class A
+package comeng.sut;
+public class A {
+    protected void doA(){
+        System.out.println("doA");
+    }
+}
+
+//class B
+package comeng.sut;
+public class B extends A {
+    public void doB(){
+        System.out.println("doB");
+    }
+    
+}
+
+//class C
+package comeng.sut2;
+import comeng.sut.A;
+public class C extends A {
+    public void doC(){
+        System.out.println("doC");
+    }
+    
+}
+=======================================================================================
+//class main
+package comeng.sut;
+import comeng.sut2.C;
+public class Sample {
+    public static void main(String[] args) {
+        Y y = new Y();
+        
+    }
+    
+}
+ 
+//class X
+package comeng.sut;
+public class X {
+    public X(){
+        System.out.println("X constructor");
+        
+    }
+}
+
+// class Y
+package comeng.sut;
+public class Y extends X {
+    public Y(){
+        super(); á½§ÍÂÙèÁÍ§äÁèàËç¹ ¨Ğ·Ó¢Í§áÁè¡èÍ¹áÅéÇ¤èÍÂ·Ó¢Í§ÅÙ¡
+        System.out.println("Y constructor");
+        
+    }
+}
+
+run
+X constructor
+Y constructor
+
+¶éÒ
+//class X
+package comeng.sut;
+public class X {
+    public X(){} µéÍ§ÁÕ
+    public X(int n){
+        System.out.println(n);
+        
+    }
+}
+
+//class Y ¨Ğ
+package comeng.sut;
+public class Y extends X {
+    public Y(){
+        super();
+        System.out.println("Y constructor");
+        
+    }
+}
+
+ËÃ×Í
+//class X
+package comeng.sut;
+public class X {
+    public X(int n){
+        System.out.println(n);
+        
+    }
+}
+
+//class Y
+package comeng.sut;
+public class Y extends X {
+    public Y(){
+        super(9);
+        System.out.println("Y constructor");
+        
+    }
+}
+
+ËÃ×Í
+
+package comeng.sut;
+public class Y extends X {
+    public Y(){
+        	//äÁèÁÕ super ¶éÒÁÕ this
+        this("Y constructor"); 
+        
+    }
+    public Y(String s){
+		//super(); ÁÕÍÂÙèµÃ§¹Õé
+        System.out.println(s);
+    }
+}
+=======================================================================================
+Pet is superclass of Dog
+Beagle is subclass of Dog
+
+public class Sample{
+	public static void main(String[] args){
+		Beagle b1 = new Beagle();
+		Beagle b2 = new Beagle("Box");
+	}
+}
+
+run.
+A Pet is instantiated
+A Dog is instantiated
+Anonymous beagle is instantiated
+A Pet is instantiated
+A Dog is instantiated
+Box is instantiated
+
+code
+//class main
+package comeng.sut;
+import comeng.sut2.C;
+public class Sample {
+    public static void main(String[] args) {
+        Beagle b1 = new Beagle();
+	Beagle b2 = new Beagle("Box");
+        
+    } 
+}
+
+//class Pet
+package comeng.sut;
+public class Pet {
+    public Pet(){
+        System.out.println("A pet is instantiated");
+    }
+}
+
+//class Dog
+package comeng.sut;
+public class Dog extends Pet {
+    public Dog(){
+        System.out.println("A dog is instantiated");
+    }
+}
+
+//class Beagle
+package comeng.sut;
+public class Beagle extends Dog {
+    public Beagle(){
+        System.out.println("Anonymous beagle is instantiated");
+    }
+    public Beagle(String s){
+        System.out.println(s+" is instantiated");
+    }
+}
+ËÃ×Í
+//class Beagle
+package comeng.sut;
+public class Beagle extends Dog {
+    public Beagle(){
+        this("Anonymous beagle");
+    }
+    public Beagle(String s){
+        System.out.println(s+" is instantiated");
+    }
+    
+}
+
+=======================================================================================
+import comeng.sut.* import ËÅÒÂ¤ÅÒÊ
+method âÍàÇÍÃìäÅÍÔé§ à¢ÕÂ¹ method ª×èÍ«éÓ¡Ñº¢Í§¤ÅÒÊáÁè(à¢ÕÂ¹¢Í§áÁèãËÁèà»ç¹¢Í§µÑÇàÍ§) ¨Ğãªé¢Í§µÑÇàÍ§ ¢Í§áÁè¨ĞäÁèãªé
+
+//class main
+package comeng.sut;
+import comeng.sut2.*;
+public class Sample {
+    public static void main(String[] args) {
+        Eagle e = new Eagle();
+        Parrot p = new Parrot();
+        e.fly();
+        p.fly();
+        
+    }
+    
+}
+ 
+//class Bird
+package comeng.sut;
+public class Bird {
+    protected void fly(){
+        System.out.println("Flying");
+    }
+}
+
+//class Eagle
+package comeng.sut2;
+import comeng.sut.Bird;
+public class Eagle extends Bird {
+    public void fly(){
+	//super.fly(); ¶éÒÍÂÒ¡·Ó method ¢Í§áÁè´éÇÂ¡çàµÔÁ ¶éÒäÁèàµÔÁ¤×ÍäÁè·Ó
+        System.out.println("Flying high");
+    }
+}
+
+run
+Flying hight
+Flying
+
+¶éÒÍÂÒ¡·Ó¢Í§áÁè´éÇÂ ãËéàµÔÁ super.fly(); ¤×Íä»·Ó method fly ¢Í§áÁè
+
+=======================================================================================
+Robot is a class
+SmartRobot is subclass is of Robot
+
+public class Sample{
+	public static void main(String[] args){
+		Robot r = new Robot();
+		SmartRobot s = new SmartRobot("S12");
+		r.setSeries("r49");
+		r.compute(2,3,1,4);
+		r.compute(4,9,2,5);
+		s.compute(2,3,1,4);
+		s.compute(4,9,2,5);
+	}
+}
+
+run
+r49 compute 2 3
+r49 compute 4 5
+S12 compute 23+32 = 55
+S12 compute 45+54 = 99
+
+code
+
+//class main
+package comeng.sut;
+import comeng.sut2.*;
+public class Sample {
+    public static void main(String[] args) {
+            Robot r = new Robot();
+            SmartRobot s = new SmartRobot("S12");
+            r.setSeries("r49");
+            r.compute(2,3,1,4);
+            r.compute(4,9,2,5);
+            s.compute(2,3,1,4);
+            s.compute(4,9,2,5);
+        
+    }
+    
+}
+ 
+//class Robot
+package comeng.sut;
+public class Robot {
+    private String series; 
+    
+       public Robot(){}
+       public Robot(String series){
+           this.series = series;
+       }
+        public void setSeries(String series){
+            this.series = series;
+        }
+        public String getSeries(){
+            return this.series;
+        }
+        public void compute(int a,int b,int c,int d){
+           int max,min,r1=0,r2=0,remain;
+           System.out.print(series+" is compute ");
+           max = max(a,b,c,d);
+           min = min(a,b,c,d);
+           remain = (a+b+c+d)-(max+min);
+           if((a+b) == remain){
+               r1=a;
+               r2=b;
+           }
+           else if((a+c)==remain){
+               r1=a;
+               r2=c;
+           }
+           else if((a+d)==remain){
+               r1=a;
+               r2=d;
+           }
+           else if((b+c)==remain){
+               r1=b;
+               r2=c;
+           }
+           else if((b+d)==remain){
+               r1=b;
+               r2=d;
+           }
+           else if((c+d)==remain){
+               r1=c;
+               r2=d;
+           }
+           System.out.print(r1+" "+r2);
+           System.out.println();
+        }
+        public int max(int a,int b,int c,int d){
+           return max(max(a,b),max(c,d)); 
+        }
+        public int max(int a,int b){
+            return a>b ? a:b;
+        }
+         public int min(int a,int b,int c,int d){
+           return min(min(a,b),min(c,d)); 
+        }
+        public int min(int a,int b){
+            return a<b ? a:b;
+        }
+    
+}
+
+//class SmartRobot
+package comeng.sut;
+public class SmartRobot extends Robot {
+    String series;
+    public SmartRobot(String series){
+        super(series);
+    }
+     public void compute(int a,int b,int c,int d){
+           
+           ÂÑ§äÁèàÊÃç¨
+        }
+       
+    
+}
+=======================================================================================
+µÑÇá»Ã ¤ÅÒÊáÁè ÊÒÁÒÃ¶ÃÑºµÑÇá»Ã¢Í§¤ÅÒÊÅÙ¡ä´é
+
+//class main
+package comeng.sut;
+import comeng.sut2.*;
+public class Sample {
+    public static void main(String[] args) {
+            Animal a = new Animal();
+            Cow c = new Cow();
+            Tiger t = new Tiger();
+            show(a);
+            show(c);
+            show(t);
+        
+    }
+    public static void show(Animal x){
+        x.eat();
+    }    
+}
+
+//class Animal
+package comeng.sut;
+public class Animal {
+    public void eat(){
+        System.out.println("An Animal eats somthing");
+    }    
+}
+ 
+//class Tiger
+package comeng.sut;
+public class Tiger extends Animal {
+    public void eat(){
+        System.out.println("A Tiger eats meat");
+    }
+}
+
+//class Cow
+package comeng.sut;
+public class Cow extends Animal {
+    public void eat(){
+        System.out.println("A cow eats grass");
+    }
+}
+
+run.
+An Animal eats somthing
+A cow eats grass
+A Tiger eats meat
+=======================================================================================
+
+

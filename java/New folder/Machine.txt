@@ -1,0 +1,27 @@
+package sample;
+public class Machine {
+    private String series;
+    private int year;
+    
+    
+    public Machine(String series){
+        this.series = series;
+    }
+    public Machine(String series,int year){
+        this.series = series;
+        this.year = year;
+    }
+    public void setSeries(String s){
+        series = s;
+    }
+    public String getSeries() {
+        return series;
+    }
+    public void setYear(int y){
+       year = y;
+    }
+    public int getYear(){
+        return year;
+        
+    }
+}

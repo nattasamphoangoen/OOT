@@ -1,0 +1,104 @@
+	ORG 8000H 		; 	 		1
+	MOV TMOD,#00010001B 	; Timer0,1 Mode1 16Bit 	2
+			; 			3
+T_OFF: 	CLR TR1 		; Stop Timer 		4
+	MOV A,#00H 		; Out Pulse		5
+	MOV P1,A 		; Out P1		6
+	MOV DPTR,#0E000H 		; Out Sound 		6
+	MOVX @DPTR,A 		; 			7
+	MOV DPTR,#-300+17 	; Reload Data 		8
+	MOV TH1,DPH 		; For TH1 		9
+	MOV TL1,DPL 		; For TL1 		10
+	CLR TF1 		; Initial Start 	11
+	SETB TR1 		; Start Timer1 		12
+	JNB TF1,$ 		; Wait Until TF On 	13
+			; 			14
+T_ON: 	CLR TR1 		; 1MC 			15
+	MOV A,#0FFH 		; 1MC 			16
+	MOV P1,A 		; 1MC 			17
+	MOV DPTR,#0E000H 		; 2MC 			18
+	MOVX @DPTR,A 		; 2MC 			19
+	MOV DPTR,#-300+17 	; 2MC 			20
+	MOV TH1,DPH 		; 2MC 			21
+	MOV TL1,DPL 		; 2MC 			22
+	CLR TF1 		; 1MC 			23
+	SETB TR1 		; 1MC 			24
+	JNB TF1,$ 		; 2MC 25
+			; 			26
+	JMP T_OFF 		; 27
+	END		; 			28
+===================================================================
+ข้อ3
+;==== Lab6_Counter1.Asm ====
+P_TestIn 	EQU P3.5
+Counter 	EQU 40H
+	ORG 8000H
+	CLR EA
+	SETB P_TestIn 	; Input Port
+	MOV Counter,#0
+Main_Loop: 	CALL Display
+	JB P_TestIn,$
+	CALL Delay_XXX
+	JNB P_TestIn,$
+	CALL Delay_XXX
+	INC Counter
+	JMP Main_Loop
+Display: 	MOV A,Counter
+	ANL A,#0FH
+	MOV DPTR,#CODE_TABLE
+	MOVC A,@A+DPTR
+	MOV DPTR,#0E060H
+	MOVX @DPTR,A
+		RET
+CODE_TABLE: 	DB 3FH,06H,5BH,4FH
+	DB 66H,6DH,7DH,07H
+	DB 7FH,6FH,77H,7CH
+	DB 39H,5EH,79H,71H
+Delay_XXX: 	CLR A
+	MOV B,#100
+_Dly00: 	DJNZ Acc,_Dly00
+	DJNZ B,_Dly00
+	RET
+	END
+
+
+ตอนที่1ข้อ4Q44
+;==== Lab6_Counter2.Asm ====
+P_TestIn 	EQU 	P3.5
+Counter 	EQU 	40H
+
+	ORG 	8000H
+	CLR 	EA
+	SETB 	P_TestIn
+	MOV 	TMOD,#01010000B
+	MOV 	TH1,#0
+	MOV 	TL1,#0
+	SETB 	TR1
+	
+Main_Loop: 	MOV 	Counter,TL1
+	CALL 	Display
+	MOV	Counter,A
+	CJNE	A,#71H,Main_Loop
+	CLR	TR1
+	JMP	Main_Loop
+	
+Display: 	MOV 	A,Counter
+	ANL 	A,#0FH
+	MOV 	DPTR,#CODE_TABLE
+	MOVC 	A,@A+DPTR
+	MOV 	DPTR,#0E060H
+	MOVX 	@DPTR,A
+	RET
+	
+CODE_TABLE: 	DB 	3FH,06H,5BH,4FH
+	DB 	66H,6DH,7DH,07H
+	DB 	7FH,6FH,77H,7CH
+	DB 	39H,5EH,79H,71H
+	
+Delay_XXX: 	CLR 	A
+	MOV 	B,#255
+	
+_Dly00: 	DJNZ 	Acc,_Dly00
+	DJNZ 	B,_Dly00
+	RET
+	END

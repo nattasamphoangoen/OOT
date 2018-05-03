@@ -1,0 +1,196 @@
+Data_Count	EQU	40H
+
+		ORG	8000H
+		JMP	START
+	
+		ORG	9F3FH
+		JMP	EX1_ROUTINE
+	
+		ORG	8100H
+START:		SETB	IT0
+		MOV 	IE,#10000001B
+		MOV	Data_Count,#0FFH
+	
+Main_Loop:	MOV	A,Data_Count
+		CALL	Show_7Segment2
+		JMP	Main_Loop
+	
+EX1_ROUTINE:	PUSH	B
+		PUSH	Acc
+		DEC	Data_Count
+		CALL	Debounce
+		CALL	Debounce
+		CLR	IE0
+		POP	Acc
+		POP	B
+		RETI
+	
+Debounce:	CLR	A
+		MOV	B,A
+	
+_Dly00:		DJNZ	Acc,_Dly00
+		DJNZ	B,_Dly00
+		
+Show_7Segment2:	PUSH	Acc
+		SWAP	A
+		MOV	B,#2
+		CALL	Show_7Segment1
+		POP	Acc
+		MOV	B,#3
+	
+Show_7Segment1:	XCH	A,B
+		MOV	DPTR,#0E002H
+		MOVX	@DPTR,A
+		XCH	A,B
+		ANL	A,#0FH
+		MOV	DPTR,#CODE_TABLE
+		MOVC	A,@A+DPTR
+		MOV	DPTR,#0E001H
+		MOVX	@DPTR,A
+		CLR	A
+		DJNZ	Acc,$
+		MOVC	A,@A+DPTR
+		RET
+	
+	
+	
+CODE_TABLE:	DB	3FH,06H,5BH,4FH
+		DB	66H,6DH,7DH,07H
+		DB	7FH,6FH,77H,7CH
+		DB	39H,5EH,79H,71H
+		
+		END
+============================================
+Data	EQU	20H
+
+	ORG	8000H
+	JMP	START
+	ORG	9F45H
+	JMP	Ext_Int1
+	ORG	8100H	
+START:	MOV 	IE,#10000100B
+	SETB	IT1
+	MOV	Data,#0
+	MOV	DPTR,#0E060H
+	
+Main_Loop:	MOV	A,Data
+	JNB	Acc.0,JOB_1
+	JB	Acc.0,JOB_2
+	JMP	Main_Loop
+	
+JOB_1:	MOV	A,#00000001B
+	MOVX	@DPTR,A
+	CALL	Delay
+	MOV	A,#00000011B
+	MOVX	@DPTR,A
+	CALL	Delay
+	MOV	A,#01000011B
+	MOVX	@DPTR,A
+	CALL	Delay
+	MOV	A,#01100011B
+	MOVX	@DPTR,A
+	CALL	Delay
+	JMP	Main_Loop
+	
+JOB_2:	MOV	A,#01000000B
+	MOVX	@DPTR,A
+	CALL	Delay
+	MOV	A,#01010000B
+	MOVX	@DPTR,A
+	CALL	Delay
+	MOV	A,#01011000B
+	MOVX	@DPTR,A
+	CALL	Delay
+	MOV	A,#01011100B
+	MOVX	@DPTR,A
+	CALL	Delay
+	JMP	Main_Loop
+	
+	
+Delay:	PUSH	B
+	PUSH	Acc
+	MOV	B,#00H
+	MOV	A,#00H
+_Delay00:	DJNZ	Acc,_Delay00
+	DJNZ	B,_Delay00
+	POP	Acc
+	POP	B
+	RET
+	
+Ext_Int1:	PUSH	Acc
+	MOV	A,Data
+	CPL	A
+	MOV	Data,A
+	CALL	Delay
+	CLR	IE1
+	POP	ACC
+	RETI
+	
+
+	END
+שששששששששששששששששששששששששששששששששששששששששששששששששששש
+Data_Count	EQU	40H
+
+	ORG	8000H
+	JMP	START
+	
+	ORG	9F3FH
+	JMP	EX1_ROUTINE
+	
+	ORG	8100H
+START:	SETB	IT0
+	MOV 	IE,#10000001B
+	MOV	Data_Count,#0
+	
+Main_Loop:	MOV	A,Data_Count
+	CALL	Show_7Segment2
+	JMP	Main_Loop
+	
+EX1_ROUTINE:	PUSH	B
+	PUSH	Acc
+	MOV	A,Data_Count
+	ADD	A,#1
+	DA	A
+	MOV	Data_Count,A
+	CALL	Debounce
+	CALL	Debounce
+	CLR	IE0
+	POP	Acc
+	POP	B
+	RETI
+	
+Debounce:	CLR	A
+	MOV	B,A
+	
+_Dly00:	DJNZ	Acc,_Dly00
+	DJNZ	B,_Dly00
+		
+Show_7Segment2:	PUSH	Acc
+	SWAP	A
+	MOV	B,#2
+	CALL	Show_7Segment1
+	POP	Acc
+	MOV	B,#3
+	
+Show_7Segment1:	XCH	A,B
+	MOV	DPTR,#0E002H
+	MOVX	@DPTR,A
+	XCH	A,B
+	ANL	A,#0FH
+	MOV	DPTR,#CODE_TABLE
+	MOVC	A,@A+DPTR
+	MOV	DPTR,#0E001H
+	MOVX	@DPTR,A
+	CLR	A
+	DJNZ	Acc,$
+	MOVC	A,@A+DPTR
+	RET
+	
+	
+	
+CODE_TABLE:	DB	3FH,06H,5BH,4FH
+	DB	66H,6DH,7DH,07H
+	DB	7FH,6FH,77H,7CH
+	DB	39H,5EH,79H,71H
+		
+	END

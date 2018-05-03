@@ -1,0 +1,151 @@
+======================================================
+****Class Main************
+
+public class NewClass {
+    public static void main(String[] arge){
+        Calculator c1 = new Calculator();
+        Calculator c2 = new Calculator();
+        
+        c1.setBrand("CASIO");
+        c2.setBrand("TOSHIBA");
+        c1.calculate(1,2,'+');
+        c2.calculate(5,3,'*');        
+    }
+
+}
+       
+***************คลาส2*******************************************
+public class Calculator {
+    private String brand;
+    int calculate;
+
+    public void setBrand(String brand){
+        this.brand = brand;
+        
+    }
+    
+    public void calculate(int a, int b, char c){
+        int x = 0;
+        
+        switch(c){
+            case '+' : x = a + b; break;
+            case '-' : x = a - b; break;
+            case '*' : x = a * b; break;
+            case '/' : x = a / b; break;
+            
+        }
+        System.out.println(brand + " calculate " + a + c + b + "=" + x);
+    }
+}
+//Running
+CASIO calculate 1+2=3
+TOSHIBA calculate 5*3=15
+
+================================================================================
+**************************
+
+public class Dog {
+    private String name;
+    
+    public Dog(){ //constructor โครงสร้างที่คล้ายๆ method ทำงานเมื่อ เรียกใช้ new ... มีไว้เพื่อเซตค่าบางอย่าง
+        this.name = "anonimous name";
+        
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    
+}
+*************************
+==================================================================================
+
+
+public class NewClass {
+    public static void main(String[] arge){
+        Dog d = new Dog();
+        System.out.println(d.getName());
+        d.setName("Dum");
+        System.out.println(d.getName());
+       
+    }
+
+}
+
+***************************
+public class Dog {
+    private String name;
+    
+    public Dog(){ //constructor โครงสร้างที่คล้ายๆ method ทำงานเมื่อ เรียกใช้ new ... มีไว้เพื่อเซตค่าบางอย่าง
+        this.name = "anonimous name";
+        
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    
+}
+
+//Running
+anonimous name
+Dum
+
+================================================================================
+*****Class Main******************
+public class NewClass {
+    public static void main(String[] arge){
+        Dog d = new Dog();
+        
+        System.out.println(d.getName());
+        d.setName("Dum");
+        System.out.println(d.getName());
+        
+        Dog g = new Dog("Dang");
+        System.out.println(g.getName());
+        d.bite(g);
+    }
+}
+       
+**************************class 2********************************
+public class Dog {
+    private String name;
+    
+    public Dog(){ //constructor โครงสร้างที่คล้ายๆ method ทำงานเมื่อ เรียกใช้ new ... มีไว้เพื่อเซตค่าบางอย่าง
+        this.name = "anonimous name"; 
+    }
+    public Dog(String name){ //constructor over loading
+        setName(name);
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    public void bite(Dog x){
+        System.out.println(name + " bites " + x.getName());
+    }
+   
+}
+
+//Rungning
+anonimous name
+Dum
+Dang
+Dum bites Dang
+
+=====================================================================================
+
+
+

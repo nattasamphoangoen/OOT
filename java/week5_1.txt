@@ -1,0 +1,203 @@
+·º·Ç¹ 
+run:
+Enter nama :Somchai
+enter age :20
+Enter grade :A
+Somchai is 20 years old.
+Somchai's grade is A
+====================
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args){
+        Scanner n=new Scanner(System.in);
+        String name;
+        int age;
+        char grade;
+        System.out.print("Enter nama :");
+       name = n.next();
+        System.out.print("enter age :");
+        age=n.nextInt();
+        System.out.print("Enter grade :");
+        grade=n.next().charAt(0);
+        System.out.println(name+" is "+age+" years old.");
+        System.out.print(name+"'s "+"grade is "+grade);
+                
+    
+    }
+}
+======================================
+run:
+Enter first number :5
+Enter secound number :4
+Enter operator :#
+no operator
+run:
+Enter first number :6
+Enter secound number :5
+Enter operator :+
+6 + 5 = 11
+run:
+Enter first number :9
+Enter secound number :5
+Enter operator :*
+9 * 5 = 45
+==========================
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args){
+        Scanner n=new Scanner(System.in);
+        int s,f,sum;
+        int age;
+        char g;
+        System.out.print("Enter first number :");
+       f = n.nextInt();
+        System.out.print("Enter secound number :");
+       s=n.nextInt();
+        System.out.print("Enter operator :");
+        g=n.next().charAt(0);
+       if(g=='+')
+          System.out.println(f+" + "+s+" = "+(f+s));
+       else if(g=='-')
+          System.out.println(f+" - "+s+" = "+(f-s));
+       else if(g=='*')
+          System.out.println(f+" * "+s+" = "+(f*s));
+       else if(g=='/')
+          System.out.println(f+" / "+s+" = "+(f/s));
+       else if(g=='%')
+          System.out.println(f+" % "+s+" = "+(f%s));
+       else
+            System.out.println("no operator");
+  
+    }
+}
+========================================================
+run:
+Enter first number :5
+Enter secound number :3
+5.0^3 = 125.0
+===============
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args){
+        Scanner n=new Scanner(System.in);
+        int s;     
+        char g;
+        double a,sum=1.0f;
+        System.out.print("Enter first number :");
+       a=n.nextDouble();
+        System.out.print("Enter secound number :");
+       s=n.nextInt();
+      for(int i =1;i<=s;i++){
+          sum*=a;
+      }
+        System.out.print(a+"^"+s+" = "+sum);            
+    
+    }
+}
+========================
+run:
+9
+4
+3
+==================
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args){
+      max(3,9);
+      max(4,2);
+      max(1,3,2);
+    }
+   public static void max(int a,int b){
+   int max=0;
+   max= a > b ?a:b;
+       System.out.println(max);
+}   
+public static void max(int a,int b,int c){
+    int max=0,max1=0;
+   max= a > b ?a:b;
+   max1=max>c?max:c;
+   
+   
+       System.out.println(max1);
+    
+}  
+  
+    }
+====================================
+run:
+3
+15
+15
+==================
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args){ 
+        System.out.println(sum(1,2));
+        System.out.println(sum(1,2,3,4,5));
+       System.out.println(sum(12345));  
+}  
+    public static int sum(int a,int b){
+        return a+b;
+    }
+    public static int sum(int a,int b,int c,int d,int e){
+        return sum(sum(sum(a,b),sum(c,d)),e);//a+b+c+d+e;
+    }
+    public static int sum(int a){
+        int s=0;
+       while(a>0){
+           s=s+a%10;
+           a/=10;
+       }
+         return s;      
+    }
+    }
+
+============================
+run:
+109
+160
+100
+2
+102
+==============
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args){ 
+       int[] n={9,15,34,2,100}; 
+       sum(n[0],n[n.length-1]);
+       sum(n);
+       System.out.println(max(n));
+       System.out.println(min(n));
+       sum(max(n),min(n));
+    }
+    public static void sum(int a,int b){
+        System.out.println(a+b);    
+    }
+    public static void sum(int[]a){
+        int s=0;
+        for(int i=0;i<a.length;i++){
+            s+=a[i];
+        }
+        System.out.println(s);
+    }
+    public static int max(int[]x){
+        int max=x[0];
+        for(int i=0;i<x.length;i++){
+            if(x[i]>max)
+                max=x[i];
+        }
+        return max;
+    }
+    public static int min(int[]x){
+        int min=x[0];
+        for(int i=0;i<x.length;i++){
+            if(x[i]<min)
+                min=x[i];
+        }
+        return min;
+    }
+     
+    }
+
+
+

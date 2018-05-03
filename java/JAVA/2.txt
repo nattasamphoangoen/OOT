@@ -1,0 +1,414 @@
+17/11/2558
+==================================================================
+...
+...
+d:\project\src>javac -d ..\build Sample.java
+d:\project\src>cd ..\build
+d:\project\build>java -cp . comeng.sut.Sample
+
+Enter your name : Samsak
+Enter your surname : Jaidee
+Enter your age : 19
+Enter your garde : A
+Enter your GPAX : 3.50
+
+S.Jaidee is 19 years old.
+He got gade A and now his GPAX is 3.50
+
+code
+
+package comeng.sut;
+import java.io.Console;
+public class Sample{
+	public static void main(String[] arge){
+		String name,sname,n1,n2,n3;// ใช้ str ตัวเดียวก็ได้
+		int age;
+		char ch,grad;
+		float gpax;
+		Console input = System.console();
+
+		System.out.print("Enter your name : ");
+		name = input.readLine();
+		System.out.print("Enter your surname : ");
+		sname = input.readLine();
+		System.out.print("Enter your age : ");
+		n1 = input.readLine();
+		age = Integer.valueOf(n1);
+		System.out.print("Enter your grade : ");
+		n2 = input.readLine();
+		grad = n2.charAt(0);
+		System.out.print("Enter your GPAX : ");
+		n3 = input.readLine();
+		gpax = Float.valueOf(n3);
+		ch = name.charAt(0);
+
+		System.out.println(ch+"."+sname+" is "+age+" years old.");
+		System.out.print("He got grad " +grad+ " and now his GPAX is " +gpax);
+	}
+}
+=======================================================================================
+scanner
+
+import java.util.Scanner;
+Scanner input = new Scanner(System.in);
+name = input.next();
+age = input.nextInt();
+grade = input.next().charAt(0);
+gpax = input.nextFloat();
+
+code2
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample{
+	public static void main(String[] arge){
+		String name,sname;
+		int age;
+		char ch,grad;
+		double gpax;
+		Scanner input = new Scanner(System.in);
+
+		System.out.print("Enter your name : ");
+		name = input.next();
+		System.out.print("Enter your surname : ");
+		sname = input.next();
+		System.out.print("Enter your age : ");
+		age = input.nextInt();
+		System.out.print("Enter your grade : ");
+		grad = input.next().charAt(0);
+		System.out.print("Enter your GPAX : ");
+		gpax = input.nextFloat();
+		ch = name.charAt(0);
+
+		System.out.println(ch+"."+sname+" is "+age+" years old.");
+		System.out.print("He got grad " +grad+ " and now his GPAX is " +gpax);
+	}
+}
+======================================================================================
+d:\project\src>lavac -d ..\build Sample2.java
+d:\project\src>cd ..\build
+d:\project\build>java -cp . comeng.sut.Sample2
+
+Enter the first number : 9
+Enter the second number : 15
+min = 9 max = 15
+
+d:\project\build>java -cp . comeng.sut.Sample2
+
+Enter the first number : 100
+Enter the second number : 20
+min = 20 max = 100
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample2{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		int n1,n2;
+		
+		System.out.print("Enter the first number : ");
+		n1 = input.nextInt();
+		System.out.print("Enter the second number : ");
+		n2 = input.nextInt();
+		if(n1>n2){
+			System.out.print("min = "+n2+ " max = "+n1);
+		}else
+			System.out.print("min = "+n1+ " max = "+n2);
+	}
+}
+=======================================================================
+d:\project\src>lavac -d ..\build Sample3.java
+d:\project\src>cd ..\build
+d:\project\build>java -cp . comeng.sut.Sample3
+
+Enter a number not more than 5 digits : 198
+1 and 8
+d:\project\build>java -cp . comeng.sut.Sample3
+
+Enter a number not more than 5 digits : 2483
+2 and 3
+
+d:\project\build>java -cp . comeng.sut.Sample2
+
+Enter a number not more than 5 digits : 45
+4 and 5
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample3{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		int num,a=0,l;
+		
+		System.out.print("Enter a number not maore than 5 digits : ");
+		num = input.nextInt();
+		l=num%10;
+		if(num<10){
+			a=num;
+		}else if(num<100){
+			a=num/10;
+
+		}else if(num<1000){
+			a=num/100;
+			
+		}else if(num<10000){
+			a=num/1000;
+			
+		}else if(num<100000){
+			a=num/10000;
+		System.out.println(a+" and "+l);
+	}
+}
+=============================================================================
+d:\project\src>lavac -d ..\build Sample4.java
+d:\project\src>cd ..\build
+d:\project\build>java -cp . comeng.sut.Sample4
+
+Main menu
+1.Add
+2.Subtract
+3.Multiply
+4.Divide
+Enter your choice : 1
+Enter the first number : 100
+Enter the second number : 50
+100+50=150
+
+d:\project\build>java -cp . comeng.sut.Sample4
+
+Main menu
+1.Add
+2.Subtract
+3.Multiply
+4.Divide
+Enter your choice : 5
+No operation
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample4{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		int num,fi,se;
+		float a;
+
+		System.out.println("Main menu");
+		System.out.println("1.Add");
+		System.out.println("2.Subtract");
+		System.out.println("3.Multiply");
+		System.out.println("4.Divide");
+		System.out.print("Enter your choice : ");
+		num=input.nextInt();
+		
+		if(num<=4){
+			switch (num){
+			case 1: System.out.print("Enter the first number : ");
+				fi=input.nextInt();
+				System.out.print("Enter the second number : ");
+				se=input.nextInt();
+				System.out.println(fi+ " + " +se+ "=" +(fi+se));
+				break;
+			case 2: System.out.print("Enter the first number : ");
+				fi=input.nextInt();
+				System.out.print("Enter the second number : ");
+				se=input.nextInt();
+				System.out.println(fi+ " - " +se+ "=" +(fi-se));
+				break;
+			case 3: System.out.print("Enter the first number : ");
+				fi=input.nextInt();
+				System.out.print("Enter the second number : ");
+				se=input.nextInt();
+				System.out.println(fi+ " x " +se+ "=" +(fi*se));
+				break;
+			case 4: System.out.print("Enter the first number : ");
+				fi=input.nextInt();
+				System.out.print("Enter the second number : ");
+				se=input.nextInt();
+				System.out.printf("%d/%d = %.2f",fi,se,(float)fi/se);
+				break;
+			}
+		}else
+			System.out.print("No oparation");
+		
+	}
+}
+
+code2
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample4{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		int num,fi,se;
+		float a;
+
+		System.out.println("Main menu");
+		System.out.println("1.Add");
+		System.out.println("2.Subtract");
+		System.out.println("3.Multiply");
+		System.out.println("4.Divide");
+		System.out.print("Enter your choice : ");
+		num=input.nextInt();
+		
+		if(num<=4){
+				System.out.print("Enter the first number : ");
+				fi=input.nextInt();
+				System.out.print("Enter the second number : ");
+				se=input.nextInt();
+			switch (num){
+			case 1:
+				System.out.println(fi+ " + " +se+ "=" +(fi+se));
+				break;
+			case 2: 
+				System.out.println(fi+ " - " +se+ "=" +(fi-se));
+				break;
+			case 3: 
+				System.out.println(fi+ " x " +se+ "=" +(fi*se));
+				break;
+			case 4: 
+				System.out.printf("%d/%d = %.2f",fi,se,(float)fi/se);
+				break;
+			}
+		}else
+			System.out.print("No oparation");
+		
+	}
+}
+======================================================================================
+d:\project\src>lavac -d ..\build Sample5.java
+d:\project\src>cd ..\build
+d:\project\build>java -cp . comeng.sut.Sample5
+
+Enter an uppercase character : a
+Enter an uppercase character : 9
+Enter an uppercase character : m
+Enter an uppercase character : g
+Enter an uppercase character : 3
+Enter an uppercase character : U
+ok U is an uppercase character
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample5{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		char ch;
+
+		do{
+			System.out.print("Enter an uppercase character : ");
+			ch = input.next().charAt(0);
+		}while(ch<'A'||ch>'Z');
+		System.out.print("ok "+ch+" is an uppercase character");
+			
+	}
+}
+============================================================================
+d:\project\src>lavac -d ..\build Sample6.java
+d:\project\src>cd ..\build
+d:\project\build>java -cp . comeng.sut.Sample6
+
+Enter the first number : 6
+Enter the second number : 20
+choose (1 = odd 2 = even) : 3
+choose (1 = odd 2 = even) : 9
+choose (1 = odd 2 = even) : 1
+7 9 11 13 15 17 19
+
+d:\project\build>java -cp . comeng.sut.Sample6
+
+Enter the first number : 12
+Enter the second number : 3
+choose (1 = odd 2 = even) : 2
+12 10 8 6 4 
+
+code
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample6{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		int num ,fi,se,i;
+
+		System.out.print("Enter the first number : ");
+		fi=input.nextInt();
+		System.out.print("Enter the second number : ");
+		se=input.nextInt();
+		do{
+			System.out.print("choose (1 = odd 2 = even) : ");
+			num=input.nextInt();
+		}while(num<1||num>2);
+		if(fi<se){
+			if(num==1){
+				for(i=fi;i<=se;i++){
+					if(i%2==1)
+					System.out.print(i+" ");
+				}
+			}
+			else{ 
+				for(i=fi;i<=se;i++){
+					if(i%2==0)
+					System.out.print(i+" ");
+				}
+			}
+			
+		}else{
+			if(num==1){
+				for(i=fi;i>=se;i--){
+					if(i%2==1)
+					System.out.print(i+" ");
+				}
+			}
+			else{ 
+				for(i=fi;i>=se;i--){
+					if(i%2==0)
+					System.out.print(i+" ");
+				}
+			}
+		}
+	}
+}
+
+code2
+
+package comeng.sut;
+import java.util.Scanner;
+public class Sample6{
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		int num ,num1,num2,i;
+
+		System.out.print("Enter the first number : ");
+		num1=input.nextInt();
+		System.out.print("Enter the second number : ");
+		num2=input.nextInt();
+		do{
+			System.out.print("choose (1 = odd 2 = even) : ");
+			num=input.nextInt();
+		}while(num<1||num>2);
+		if(num1<num2){
+			if((num==1&&num1%2==0)||(num==2&&num1%2==1))
+				num1++;
+			for(int i = num1;i<=num;i+=2)
+				System.out.print(i+" ");
+			
+		}else{
+			if((num==1&&num1%2==0)||(num==2&&num1%2==1))
+				num1--;
+			for(int i = num1;i>=num;i-=2)
+				System.out.print(i+" ");
+			
+
+		}
+	}
+}
+================================================================================

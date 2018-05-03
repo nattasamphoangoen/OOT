@@ -1,0 +1,277 @@
+Week1\2
+=========================================================
+Run:
+Enter your name : Somsak
+Enter your sex (F/M) : M
+Enter your age : 20
+Enter your GPAX : 2.78
+Somsak is 20 years old and will be 21 years old next year 
+Somsak's "GPAX" is 2.78
+=========================================================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+         String name;
+         char sex;
+         int age;
+         float gpax;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter your name : ");
+         name=n.next();
+          System.out.print("Enter your sex (F/M) : ");
+         sex=n.next().charAt(0);
+          System.out.print("Enter your age : ");
+        age=n.nextInt();
+         System.out.print("Enter your GPAX : ");
+         gpax=n.nextFloat();
+         System.out.println(name+" is "+age+" years old and will be "+(age+1)+" years old next year ");
+         System.out.println(name+"'s \"GPAX\" is "+gpax);
+         
+         
+         
+     }
+    
+}
+============================================================
+Run:
+Enter the value of a : 15
+Enter the value of a :67
+before swapping
+a = 15 b = 67
+after swapping
+a = 67 b = 15
+======================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+          int a,b,temp=0;
+         Scanner n=new Scanner(System.in);
+          System.out.print("Enter the value of a : ");
+        a=n.nextInt();
+         System.out.print("Enter the value of a :");
+        b=n.nextInt();
+         System.out.println("before swapping");
+         System.out.println("a = "+a+" b = "+b);
+         System.out.println("after swapping");
+         temp=a;
+         a=b;
+         b=temp;
+         System.out.println("a = "+a+" b = "+b);                                            
+     }
+    
+}
+========================================================
+Run:
+Enter the value of a : 15
+Enter the value of b : 67
+75 + 61 = 136 
+==========================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+          int a,b,d1=0,d2=0,e1=0,e2=0;
+         Scanner n=new Scanner(System.in);
+          System.out.print("Enter the value of a : ");
+        a=n.nextInt();
+        System.out.print("Enter the value of b : ");
+        b=n.nextInt();
+         d2=a/10;
+         d1=a%10;
+         e2=b/10;
+         e1=b%10;
+         a=e1*10+d1;
+         b=e2*10+d2;
+         System.out.println(a+" + "+b+" = "+(a+b));
+         
+        
+            
+     }
+    
+}
+============================================================
+
+A
+
+char ch;
+ch='\u0041';= ch='A';
+Run:
+ ch = A
+ASCII code of A = 65
+lowercase of A = a
+1
+6
+===================================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+          int a,b,d1=0,d2=0,e1=0,e2=0;
+         Scanner n=new Scanner(System.in);
+          char ch;
+          ch='\u0041';
+          System.out.println(" ch = "+ch);
+          System.out.println("ASCII code of "+ch+" = "+(int)ch);
+          System.out.println("lowercase of "+ch+" = "+(char)(ch+32));
+           System.out.println(ch- '0');
+           System.out.println(ch-'0'+5); 
+     }   
+}
+
+================================
+Run:
+Enter a number : 254
+even
+================================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+          int a,b,d1=0,d2=0,e1=0,e2=0;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter a number : ");  
+         a=n.nextInt();
+         System.out.println(a%2==1?"odd":"even");                    
+     }    
+}
+>>>>>>>>>>>>>>>>>>>>>>เช็คแบบบิต<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+run:
+Enter a number : 12
+even
+====================================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+          int a,b,d1=0,d2=0,e1=0,e2=0;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter a number : ");  
+         a=n.nextInt();
+        System.out.println((a&1)==1?"odd":"even");                                   
+     }    
+}
+====================================
+1.integer 
+byte short int long
+2.Real number
+3.Character
+4.True or false
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+          int a,b,d1=0,d2=0,e1=0,e2=0;
+         Scanner n=new Scanner(System.in);
+         float x;
+         x = (float)1.23;>>double
+         x=1.23f;
+     }
+         
+}
+============================================
+ระวัง!!!! `เราไม่รู้ว่าผู้ป้อนจะป้อนเลขไร เราควรใส่ให้เป็น float 
+Run:
+
+Enter base of triangle :3
+Enter heigth of triangle :9
+Area of this triangle = 13.5
+=============================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+       
+          float a,b,d=0;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter base of triangle :");
+         a=n.nextFloat();
+         System.out.print("Enter heigth of triangle :");
+         b=n.nextFloat();
+         d=(a*b)/2;
+         System.out.println("Area of this triangle = "+d);
+         
+     }
+         
+}
+===========================================
+Run:
+Enter base of triangle :4
+Enter heigth of triangle :3
+hypotenuse = 5.0
+===============================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+       
+          float a,b;
+          double d1;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter base of triangle :");
+         a=n.nextFloat();
+         System.out.print("Enter heigth of triangle :");
+         b=n.nextFloat();
+         d1=(a*a)+(b*b);
+         System.out.println("hypotenuse = "+Math.sqrt(d1));
+         
+     }
+         
+}
+======================================
+Run:
+Enter base of triangle :713
+3-digit number
+Enter base of triangle :2
+not 3-digit number 
+not 3-digit number 
+==========================================================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+       
+          float a,b;
+          double d1;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter base of triangle :");
+         a=n.nextFloat();
+        
+             if(a>99&&a<1000){
+             System.out.print("3-digit number");
+             
+             
+             }else {
+             System.out.println("not 3-digit number ");
+             
+             
+         } 
+     }
+         
+}
+
+==========================================================
+Run:
+Enter a number (2-4 didgit): 1
+out of range
+Enter a number (2-4 didgit): 4555455
+out of range
+Enter a number (2-4 didgit): 456
+3 didgit
+Enter a number (2-4 didgit): 7845
+4 didgit
+====================================================
+import java.util.Scanner;
+public class Sample {
+     public static void main(String[] args){
+       
+          float a,b;
+          double d1;
+         Scanner n=new Scanner(System.in);
+         System.out.print("Enter a number (2-4 didgit): ");
+         a=n.nextFloat();
+        
+             if(a>9&&a<100)
+             System.out.print("2 digit");                         
+              else if(a>99&&a<1000) 
+             System.out.println("3 didgit");
+             else if(a>999&&a<10000)
+                 System.out.println("4 didgit");
+             else  
+                 System.out.println("out of range");
+                  
+     }
+         
+}
+

@@ -1,0 +1,368 @@
+Running:
+Please enter number 9 : 12
+Please enter number 9 :266
+Please enter number 9 :5
+Please enter number 9 :9
+Finally you enter 9
+===============================
+ใช้
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num;
+        System.out.print("Please enter number 9 : ");
+        num=n.nextInt();
+        while(num!=9){
+            System.out.print("Please enter number 9 :");
+             num=n.nextInt();
+        }
+        System.out.println("Finally you enter 9");
+    }
+    
+    
+}
+===================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num;
+            do{
+            System.out.print("Please enter number 9 :");
+             num=n.nextInt();
+        }while(num!=9);
+        System.out.println("Finally you enter 9");
+    }
+    
+    
+}
+===================================================
+Running :
+Enter a positive number :-5
+Enter a positive number :-120
+Enter a positive number :6
+ok.
+=======================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num;
+            do{
+            System.out.print("Enter a positive number :");
+             num=n.nextInt();
+        }while(num<0);
+        System.out.println("ok.");
+    }
+    
+    
+}
+===============================================
+Running :
+Enter number (9-20):23
+Enter number (9-20):2
+Enter number (9-20):5
+Enter number (9-20):12
+ok.
+======================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num;
+            do{
+            System.out.print("Enter number (9-20):");
+             num=n.nextInt();
+        }while(num<9||num>20);
+        System.out.println("ok.");
+    }
+    
+    
+}
+==========================================
+Running :
+Enter number 3 digit palindrome number :205
+Enter number 3 digit palindrome number :1441
+Enter number 3 digit palindrome number :99
+Enter number 3 digit palindrome number :191
+ok.
+======================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,a1,a2,a3,a4;
+            do{
+            System.out.print("Enter number 3 digit palindrome number :");
+             num=n.nextInt();
+              a3=num/100;
+            a4=num%10;
+            a1=num/100%10;
+            a2=num/10%10;
+        }while(num<100||num>999||a3!=a4);{         
+            
+               System.out.println("ok.");
+            
+    }
+        
+    }
+    
+    
+}
+===================================================
+Running :
+Enter a number :1234
+4321
+==================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,a1,a2,a3,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+             while(num>0){
+                 System.out.print(num%10);
+                 num=num/10;
+                
+             }
+                 
+        
+    }
+    
+    
+}
+====================================================
+Running :
+Enter a number :12345
+15
+=====================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,a1=0,a2,a3,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+             while(num>0){
+                 a1=a1+num%10;
+                num=num/10;    
+             }
+             System.out.println(a1);
+                 
+        
+    }
+    
+    
+}
+==========================================
+
+แนวคิด palindrome แบบย้อนกลับ
+num                 sum
+1551                0+1 = 1
+155                 1*10+5=15
+15                  15*10+5=155
+1                   155*10+1=1551
+0
+=========================
+Running:
+print from 1 to :10
+1 2 3 4 5 6 7 8 9 10
+===============
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,a3,a4;
+             System.out.print("print from 1 to :");
+             num=n.nextInt();
+           for(int i = 1;i <=num;i++)
+               System.out.print(i+" ");
+                 
+        
+    }
+     
+}
+================================
+Running:ไม่เอาเลขที่หาร5ลงตัว
+print from 1 to :10
+1 2 3 4 6 7 8 9
+====================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,a3,a4;
+             System.out.print("print from 1 to :");
+             num=n.nextInt();
+           for(int i = 1;i <=num;i++)
+               if(i%5!=0)
+               System.out.print(i+" ");
+                 
+        
+    }
+     
+}
+===================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,a3,a4;
+             System.out.print("print from 1 to :");
+             num=n.nextInt();
+           for(int i = 1;i <=num;i++){
+               if(i%5==0)
+                   continue;
+               System.out.print(i+" ");
+           }
+                 
+        
+    }
+     
+}
+===================================================
+Running :
+Enter a number :99
+Not Prime number
+
+Enter a number :15
+Not Prime number
+Enter a number :13
+Prime number
+=====================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,count=0,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+         for(int i = 1;i <= num; i++){
+             if(num%i==0)
+                 count++;
+             
+         }   
+         if(count==2)
+             System.out.println("Prime number");
+         else
+               System.out.println("Not Prime number");
+    }
+     
+}
+================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,count=0,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+        for(int i = 2;i<= num; i++){
+             if(num%i==1)
+                 count++;
+             
+         }   
+      System.out.println(count==1 ? "Prime number":"Not Prime number");
+       
+    }
+     
+}
+===============
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,count=0,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+        for(int i = 2;i <= num-1; i++){
+             if(num%i==0)
+                 count++;
+             
+         }   
+      System.out.println(count==0 ? "Prime number":"Not Prime number");
+       
+    }
+     
+}
+=========================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,count=0,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+         for(int i = 2;i*i <= num; i++){
+             if(num%i==0)
+                 count++;
+             
+         }   
+      System.out.println(count==0 ? "Prime number":"Not Prime number");
+       
+    }
+     
+}
+==========================================================
+Running :
+Enter a number :50
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+====================================
+import java.util.Scanner;
+public class Sample1 {
+    public static void main(String[] args){
+        Scanner n = new Scanner(System.in);
+        int num,sum=0,temp=0,count=0,a4;
+             System.out.print("Enter a number :");
+             num=n.nextInt();
+             for(int x=1 ;x<=100;x++){
+                 count = 0;
+         for(int i = 2;i*i <= x; i++){
+             if(x%i==0)
+                 count++;
+             
+         }   
+            if(count==0&&x!=1)
+                     System.out.print(x+" ");
+             }  
+    }
+     
+}
+=====================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

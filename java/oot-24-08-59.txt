@@ -1,0 +1,249 @@
+======ทบทวน==============
+//1.input and output 
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        Scanner input = new Scanner(System.in);
+        String name;
+        int age;
+        char grade;
+        
+        System.out.print("Enter name : ");
+        name = input.next();
+        System.out.print("Enter age : ");
+        age = input.nextInt();
+        System.out.print("Enter grade : ");
+        grade = input.next().charAt(0);
+        
+        System.out.println(name +" is " +age + " years old.");
+        System.out.println(name +" 's grade is " +grade);
+       
+    }
+    
+}
+
+
+run:
+Enter name : Somchai
+Enter age : 20
+Enter grade : A
+Somchai is 20 years old.
+Somchai 's grade is A
+===================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        Scanner input = new Scanner(System.in);
+        int a,b;
+        char c; 
+        System.out.print("Enter the firt number : ");
+        a = input.nextInt();
+        System.out.print("Enter the second number : ");
+        b = input.nextInt();
+        System.out.print("Enter operator : ");
+        c = input.next().charAt(0);
+        
+        if(c == '+')
+            System.out.println(a+" + "+b +" = " +(a+b));
+        else if(c == '*')
+            System.out.println(a+" * "+b +" = " +(a*b));
+        else if(c == '-')
+            System.out.println(a+" - "+b +" = " +(a-b));
+        else if(c == '/')
+            System.out.println(a+" / "+b +" = " +(a/b));
+        else
+            System.out.println("no operator");
+
+    
+}
+run:
+Enter the firt number : 5
+Enter the second number : 2
+Enter operator : +
+5 + 2 = 7
+
+run:
+Enter the firt number : 5
+Enter the second number : 2
+Enter operator : #
+no operator
+
+*****************หรือ*********************
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        Scanner input = new Scanner(System.in);
+        int a,b;
+        char c; 
+        System.out.print("Enter the firt number : ");
+        a = input.nextInt();
+        System.out.print("Enter the second number : ");
+        b = input.nextInt();
+        System.out.print("Enter operator : ");
+        c = input.next().charAt(0);
+        
+        switch(c){
+            case '+': System.out.println(a+" + "+b +" = " +(a+b)); break;
+            case '*': System.out.println(a+" * "+b +" = " +(a*b)); break;
+            case '/': System.out.println(a+" / "+b +" = " +(a/b)); break;
+            case '-': System.out.println(a+" - "+b +" = " +(a-b)); break;
+            default : System.out.println("no operator");
+        }
+
+       
+    }
+    
+}
+
+run:
+Enter the firt number : 5
+Enter the second number : 2
+Enter operator : +
+5 + 2 = 7
+
+run:
+Enter the firt number : 5
+Enter the second number : 2
+Enter operator : #
+no operator
+
+===========================================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        Scanner input = new Scanner(System.in);
+        int n2;
+        double n1,result = 1.0;
+        System.out.print("Enter the firt number : ");
+        n1 = input.nextDouble();
+        System.out.print("Enter the second number : ");
+        n2 = input.nextInt();
+       for(int i = 0 ; i < n2 ; i++){
+           result = result*n1;
+       }
+        System.out.println(n1 +"^" +n2 + " = " + result);   
+    }
+    
+}
+run:
+Enter the firt number : 1.5
+Enter the second number : 2
+1.5^2 = 2.25
+
+===========================================================================
+
+**************Method and control*********************
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        max(3,9);
+        max(4,2);
+        max(1,3,2);
+       
+       
+    }
+    public static void max(int a,int b){
+        int max;
+        max = a > b ? a : b;
+        System.out.println(max);        
+    }
+    
+    public static void max(int a,int b, int c){
+        int max;
+        max = a > b ? a : b;
+        max = c > max ? c : max;
+        System.out.println(max);    
+    }  
+}
+
+run:
+9
+4
+3
+============================================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        System.out.println(sum(1,2));
+        System.out.println(sum(1,2,3,4,5));
+        System.out.println(sum(12345));
+    }
+    public static int sum(int a){
+        int sum = 0;
+        while(a > 0){
+           sum = sum+(a%10);
+             a = a/10;      
+        }
+        return sum;
+    }       
+    public static int sum(int a, int b){
+        return a+b;
+    }
+    
+    public static int sum(int a, int b,int c,int d,int e){
+        return sum(sum(sum(a,b),sum(c,d)),e);
+    }
+   
+}
+run:
+3
+15
+15
+============================================================================
+
+************Array, Method, control***************************************
+
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){ 
+        int[]n = {9,15,34,2,100};
+        sum(n[0],n[n.length-1]);
+        sum(n);
+        System.out.println(max(n));
+        System.out.println(min(n));
+        sum(max(n),min(n));
+    }
+    public static void sum(int a,int b){
+        System.out.println(a+b);            
+    }
+    
+    public static void sum(int[] a){
+        int total = 0;
+        for(int i = 0 ;i < a.length ; i++)
+            total = total + a[i];      
+        System.out.println(total);            
+    }
+    public static int max(int[] a){
+         int max = 0;
+         for(int i = 1 ; i < a.length; i++){
+         if(a[i] > max)
+             max = a[i];
+         }
+         return max;
+     }
+    public static int min(int[] a){
+         int min = 0;
+         for(int i = 1 ; i < a.length; i++){
+         if(a[i] < min)
+             min = a[i];
+         }
+         return min;
+     }
+    
+    
+   
+}
+//
+run:
+109
+160
+100
+0
+100
+=======================================================================
+
+
+

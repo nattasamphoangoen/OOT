@@ -1,0 +1,147 @@
+โจทย์ OOT Midterm ข้อที่ 1
+---------- Exam1.java ----------
+public class Exam1 {
+    public static void main(String[] args){
+        Student s = new Student("Lek");
+        Dog d = new Dog("Dang");
+        Collar c = new Collar("red");
+        s.setPet(d);
+        d.setCollar(c);
+        System.out.println(s.getPet().getName() + " ... " + s.getName() + "\'s");
+        System.out.println("... " + s.getPet().getCollar().getColour());
+    }
+}
+
+---------- Student.java ----------
+public class Student{
+    private String name;
+    private Dog dog;
+    Student(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    public void setPet(Dog d){
+        this.dog = d;
+    }
+    
+    public Dog getPet(){
+        return dog;
+    }
+}
+
+------------ Dog.java --------------
+public class Dog{
+    private String name;
+    private Collar collar;
+    
+    Dog(String name){
+        this.name = name;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void setCollar(Collar c){
+        this.collar = c;
+    }
+    
+    public Collar getCollar(){
+        return collar;
+    }
+   
+}
+
+---------- Collar.java -------------
+public class Collar{
+    private String colour;
+    
+    Collar(String colour){
+        this.colour = colour;
+    }
+    
+    public String getColour(){
+        return colour;
+    }
+}
+
+============================================
+============================================
+
+โจทย์ OOT Midterm ข้อที่ 2
+
+--------------- Exam2.java ----------
+public class Exam2 {
+    public static void main(String[] args){
+        int[] t = {4, 8, 2, 1, 5, 9, 3};
+        Calculator c = new Calculator();
+        c.sumOddIndex(t);
+        c.sumOddIndex(new int[]{1, 2, 1, 2, 1, 2, 1, 2, 1, 2});
+        System.out.println("*****");
+        c.sumOddIndex(t, 3);
+        c.sumOddIndex(t, 7);
+    }
+}
+
+------------- Calculator.java -------------
+public class Calculator {
+    public void sumOddIndex(int[] x){
+        int sum = 0;
+        System.out.print("Sum only ");
+        for(int i = 1; i < x.length; i+=2){
+            System.out.print(x[i] + " ");
+            sum += x[i];
+        }
+        System.out.println(" = " + sum);
+    }
+    
+    public void sumOddIndex(int[] x, int n){
+        int sum = n;
+        System.out.print("Sum only ");
+        for(int i = 1; i < x.length; i+=2){
+            System.out.print(x[i] + " ");
+            sum += x[i];
+        }
+        System.out.println("and " + n + " = " + sum);
+    }
+}
+
+======================================
+======================================
+
+โจทย์ OOT Midterm ข้อที่ 3
+
+--------------- Exam3.java -----------
+public class Exam3 {
+    public static void main(String[] args){
+        Utility.add(123);
+        Utility.add(987654321);
+        System.out.println("=====");
+        Utility.print("HELLO");
+        Utility.print("SUT");
+    }
+}
+
+------------- Utility.java ------------
+public class Utility {
+    public static void add(long n){
+        long tmp = n;
+        long sum = 0;
+        
+        while(tmp > 0){
+            sum += tmp % 10;
+            tmp /= 10;
+        }
+        System.out.println(sum);
+    }
+    
+    public static void print(String s){
+        System.out.println(s);
+    }
+}
+
+=======================================
+=======================================

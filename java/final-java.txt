@@ -1,0 +1,176 @@
+1.)
+public class JavaApplication2 {
+    public static void main(String[] args) {
+      Student s = new Student();
+      s.setName("Somchai");
+      s.setAge(20);
+      s.setId("B5801234");
+      UnderGraduate u = new UnderGraduate();
+      u.setName("Somsak");
+      u.setAge(19);
+      u.setId("B5904321");
+      u.register();
+     
+      System.out.println(s.getName()+":"+s.getId()+":"+s.getAge());
+      System.out.println(u.getName()+":"+u.getId()+":"+u.getAge()); 
+      u.take("English");
+    }
+    
+}
++++++++++++++++++++
+public class Student {      /////  big class
+    private String name;
+    private int age;
+    private String id;
+   
+    
+    public void setName(String n){
+        this.name = n;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setAge(int a){
+        this.age = a;
+    }
+    public int getAge(){
+        return age;
+    }
+    public void setId(String i){
+        this.id = i;
+    }
+    public String getId(){
+        return id;
+    }
+    public void take(String e){
+        System.out.println(name+" takes "+e);
+    }
+}
+++++++++++++++++++
+public class UnderGraduate extends Student{ 
+    public void register(){
+       
+    }
+}
+
+
+========
+run:
+Somchai:B5801234:20
+Somsak:B5904321:19
+Somsak takes English
+
+
+
+------------------------------------------------------
+2.)
+public class JavaApplication1 {
+    public static void main(String[] args) {
+       Circle c = new Circle();
+       c.setRadius(1);
+       Cylinder a = new Cylinder();
+       a.setRadius(1);
+       a.setHeight(1);
+       
+       System.out.println("Area of Circle is = " +c.getArea());
+       System.out.println("Area of Cylinder is = "+a.getArea()+" : volume is = "+a.getVolume());
+    }
+    
+}
+++++++++++++++++++++
+public class Circle {
+    private double radius;
+    
+    public void setRadius(double radius){
+        this.radius = radius;
+    }
+    public double getRadius(){
+        return radius;
+    }
+    public double getArea(){
+        return Math.PI*radius*radius;
+    }
+    
+}
+++++++++++++++++++++
+public class Cylinder extends Circle {
+    private double height;
+    
+    public void setHeight(double height){
+        this.height = height;
+    }
+    public double getHeight(){
+        return height;
+        
+    }
+    
+    public double getArea(){   /// ไม่เอา area จากแม่ 
+        return 2*Math.PI*getRadius()*height+2*super.getArea();   ////  super คือ เอาพท.วงกลมของแม่มา 2 เท่า
+    }
+    public double getVolume(){
+        return Math.PI*getRadius()*getRadius()*height;
+    }
+}
+
+
+======================
+run:
+Area of Circle is = 3.141592653589793
+Area of Cylinder is = 12.566370614359172 : volume is = 3.141592653589793
+
+
+----------------------------------
+3.)public class JavaApplication1 {
+    public static void main(String[] args) {
+       Circle c = new Circle();
+       c.setRadius(1);
+       Cylinder a = new Cylinder();
+       a.setRadius(1);
+       a.setHeight(1);
+       
+       System.out.printf("Area of Circle is = %.2f\n" ,c.getArea());
+       System.out.printf("Area of Cylinder is = %.2f\n",a.getArea());
+       System.out.printf("Volume is = %.2f",a.getVolume());
+    }
+    
+}
++++++++++++
+public class Circle {
+    private double radius;
+    
+    public void setRadius(double radius){
+        this.radius = radius;
+    }
+    public double getRadius(){
+        return radius;
+    }
+    public double getArea(){
+        return Math.PI*radius*radius;
+    }
+    
+}
+++++++++++++++++++
+public class Cylinder extends Circle {
+    private double height;
+    
+    public void setHeight(double height){
+        this.height = height;
+    }
+    public double getHeight(){
+        return height;
+        
+    }
+    
+    public double getArea(){   /// ไม่เอา area จากแม่ 
+        return 2*Math.PI*getRadius()*height+2*super.getArea();   ////  super คือ เอาพท.วงกลมของแม่มา 2 เท่า
+    }
+    public double getVolume(){
+        return Math.PI*getRadius()*getRadius()*height;
+    }
+}
+=============
+run:
+Area of Circle is = 3.14
+Area of Cylinder is = 12.57
+Volume is = 3.14
+

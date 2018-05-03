@@ -1,0 +1,348 @@
+====================28/07/59======================================================
+==================================================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,a1,b,b1,b2,b3;
+            
+            
+                System.out.print("Please enter number 9 : ");
+                n = input.nextInt();
+            while(n != 9){
+                System.out.print("Please enter number 9 : ");
+                n = input.nextInt();
+            }
+            
+            System.out.println("Finally you enter 9");
+    }
+}
+
+//Running
+Please enter number 9 : 10
+Please enter number 9 : 8
+Please enter number 9 : 3
+Please enter number 9 : 2
+Please enter number 9 : 9
+Finally you enter 9
+
+
+====================================================================================
+====================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,a1,b,b1,b2,b3;
+            
+            do{            
+                System.out.print("Please enter number 9 : ");
+                n = input.nextInt();
+            }while(n != 9);
+            
+            System.out.println("Finally you enter 9");
+    }
+}
+
+//Running
+Please enter number 9 : 1
+Please enter number 9 : 2
+Please enter number 9 : 4
+Please enter number 9 : 9
+Finally you enter 9
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,a1,b,b1,b2,b3;
+            
+            do{            
+                System.out.print("Please a positive number  : ");
+                n = input.nextInt();
+            }while(n < 0);
+            
+            System.out.println("Ok.");
+    }
+}
+
+//Running
+Please a positive number  : -5
+Please a positive number  : -100
+Please a positive number  : -123
+Please a positive number  : 9
+Ok.
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,a1,b,b1,b2,b3;
+            
+            do{            
+                System.out.print("Please a number <9-20>  : ");
+                n = input.nextInt();
+            }while(n < 9 || n > 20 );
+            
+            System.out.println("Ok.");
+    }
+}
+            
+//Running
+
+Please a number <9-20>  : 1
+Please a number <9-20>  : 2
+Please a number <9-20>  : 5
+Please a number <9-20>  : 9
+Ok.
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,b,c,d;
+                                      
+                do{                 
+                    System.out.print("Please a 3-digit palindrome number  : ");
+                    n = input.nextInt();       
+                    a = n/100;                
+                    c = n%10;
+                }while(n < 100 || n > 999 || a!= c );
+    
+            System.out.println("Ok.");
+    }
+}
+
+//Running
+Please a 3-digit palindrome number  : 205
+Please a 3-digit palindrome number  : 1441
+Please a 3-digit palindrome number  : 99
+Please a 3-digit palindrome number  : 191
+Ok.
+
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,b,c,d;
+            
+            System.out.print("Please a number  : ");
+            n = input.nextInt();   
+            
+            while(n > 0){
+                System.out.print(n%10);
+                n = n/10;
+            }      
+    }
+}
+
+//Runing
+Please a number  : 123456789
+987654321
+
+======================================================================================
+======================================================================================
+
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,b,c,d,sum=0;
+            
+            System.out.print("Please a number  : ");
+            n = input.nextInt();   
+            
+            while(n > 0){
+
+                sum += n % 10;
+                n = n / 10;    
+            }
+            System.out.println(sum);
+    }
+}
+
+//Running
+Please a number  : 12345   ***นำตัวเลขแต่ละหลักมาบวกกัน***
+15
+
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,a,b,c,d,sum=0,n1;
+            
+            System.out.print("Please a number  : ");
+            n = input.nextInt();
+            n1 = n;
+            
+            while(n > 0){
+                sum = sum*10 + n%10;
+                n = n/10;    
+            }   
+            if(sum == n1)
+                System.out.println("palindrome");
+            else
+                System.out.println("not palindrome");
+    }
+}
+
+//Running
+Please a number  : 1532351
+palindrome
+
+***************************การหาเลขพาลินโดรม ในกรณีที่ ผู้ใช้กรอกตัวเลยหลายๆ หลัก****************************************          
+
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n;
+            
+            System.out.print("print from 1 to  : ");
+            n = input.nextInt();
+            
+            for(int i = 1;i <= n; i++)
+                System.out.print(i+" ");
+
+    }
+}
+
+//Running
+print from 1 to  : 15
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+
+======================================================================================
+======================================================================================
+
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n;
+            
+            System.out.print("print from 1 to  : ");
+            n = input.nextInt();
+            
+            for(int i = 1;i <= n; i++)
+                if(i%5!=0)          
+                    System.out.print(i+ " ");        
+    }
+}
+
+********OR****************OR****************OR************
+
+for(int i = 1;i <= n; i++)
+                if(i%5==0)  
+		   continue;        
+                    
+
+		System.out.print(i+ " ");
+
+******************************************************
+
+//Running
+print from 1 to  : 15       ////////ถ้าเลขที่หารด้วย 5 ลงตัว ไม่ต้องปริ้น/////////
+1 2 3 4 6 7 8 9 11 12 13 14
+
+======================================================================================
+======================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,count = 0;
+            
+            System.out.print("Enter a number  : ");
+            n = input.nextInt();
+            
+	
+            for(int i = 1; i <= n; i++){
+                if(n % i == 0)
+                    count++;
+            }
+            System.out.println(count==2 ? "prime number" : "not prime number");               
+    }
+}
+
+// Running
+Enter a number  : 7
+prime number
+
+****************************หรือ****************************************************************************
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int n,count = 0;
+            
+            System.out.print("Enter a number  : ");
+            n = input.nextInt();
+            
+            for(int i = 2; i*i <= n; i++){
+                if(n % i == 0)
+                    count++;
+            }
+            System.out.println(count==0 ? "prime number" : "not prime number");               
+    }
+}
+
+======================================================================================
+======================================================================================
+
+*****************การตรวจสอบ หาเลขที่เป็นจำนวนเฉพาะ ในช่วง 1-100 **********************************************************
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            int count;
+            
+            for(int x = 1; x <= 100; x++){
+                count = 0;
+                for(int i = 2; i*i <= x; i++){
+                    if(x % i == 0)
+                     count++;
+                }
+                if(count == 0 && x !=1)
+                    System.out.print(x + " ");
+            }                     
+    }
+}
+
+//Running
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+
+======================================================================================
+=======================================THE END========================================
+
+
+
+
+

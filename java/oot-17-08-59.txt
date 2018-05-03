@@ -1,0 +1,243 @@
+=====================================
+class and object
+=====================================
+	different object have
+	different attributes
+	differrent behavior
+
+
+class Bird{
+	//คุณลักษณะ (อยู่ในเชิงข้ิอมูล)
+	String featherColor;
+	String breakSize;
+	//พฤติกรรม (อยู่ในเชิงMothod)
+	public void fly(){
+		System.out.println("flying ");
+
+}
+
+class Dog{
+	String hairColor;
+
+}
+
+============================================================================
+//class main//
+ 
+public class Sample {
+    public static void main(String[] args){
+        Bird b1 = new Bird(); //ทำให้เกิด object
+        Bird b2 = new Bird();
+        b1.featherColor = "white";
+        b1.beakSize = "big";
+        b2.featherColor = "black";
+        b2.beakSize = "small";
+        
+        System.out.println("The "+ b1.featherColor +" " + b1.beakSize + " beak bird");
+        System.out.println("The "+ b2.featherColor +" " + b2.beakSize + " beak bird");
+        b1.fly();
+        b2.fly();
+        
+    }
+    
+}
+
+//////////////////////////////////////////////////////
+class ย่อย
+
+public class Bird {
+//คุณลักษณะ (อยู่ในเชิงข้ิอมูล)
+	String featherColor;
+	String beakSize;
+        
+//พฤติกรรม (อยู่ในเชิงเมทตอท)
+	public void fly(){
+		System.out.println("The " + featherColor + " bird if flying");
+
+}
+    
+}
+/////////Running
+The white big beak bird
+The black small beak bird
+The white bird if flying
+The black bird if flying
+
+======================================================================================
+//class main//
+public class Sample {
+    public static void main(String[] args){
+        Dog d1 = new Dog(); //ทำให้เกิด object
+        Dog d2 = new Dog();
+        
+        d1.hairColor = "white";
+        d1.size = "big";
+        
+        d2.hairColor = "black";
+        d2.size = "big";
+        
+        System.out.println("The "+ d1.hairColor + " dog is "+ d1.size);
+        System.out.println("The "+ d2.hairColor + " dog is "+ d2.size);
+        d1.bark();
+        d2.bark();
+        
+    }
+    
+}
+
+*********************************************
+//class 2
+public class Dog {
+    
+    String hairColor;
+    String size;
+    
+    public void bark(){
+        System.out.println("The "+ hairColor + " dog is barking" );
+    }
+}
+
+//Running
+The white dog is big
+The black dog is big
+The white dog is barking
+The black dog is barking
+===================================================================================
+
+
+//class main//
+public class Sample {
+    public static void main(String[] args){
+        Square num = new Square(); 
+        Square num2 = new Square();
+        num.side = 4;
+        num2.side = 5;
+        
+        System.out.println("square side is "+ num.side );
+        System.out.println("square side is "+ num2.side );
+        
+        
+        System.out.println("area of square side " + num.side +" is " +num.getArea());
+        System.out.println("area of square side " + num2.side +" is " +num2.getArea());
+        
+        
+    }
+    
+}
+
+********************************************
+//class 2//
+public class Square {
+    int side;
+    
+    public int getArea(){
+        return (side*side);
+    }
+    
+}
+//Running//
+square side is 4
+square side is 5
+area of square side 4 is 16
+area of square side 5 is 25
+=====================================================================================
+
+//Class main//
+public class Sample {
+    public static void main(String[] args){
+        Student s1 = new Student(); 
+        Student s2 = new Student();
+        
+        s1.name = "Somchai";
+        s2.name = "Somsak";
+        s1.age = 19;
+        s2.age = 20;
+        
+        System.out.println(s1.name + " is " + s1.age +" years old.");
+        System.out.println(s2.name + " is " + s2.age +" years old.");
+        
+        s1.register();
+        s2.register();
+ 
+    }
+    
+}
+******************************************
+//class 2//
+public class Student {
+    String name;
+    int age;
+    
+    public void register(){
+        System.out.println(name + " is registering.");
+        
+    }
+    
+}
+//Running//
+Somchai is 19 years old.
+Somsak is 20 years old.
+Somchai is registering.
+Somsak is registering.
+========================================================================
+
+****การใช้private****
+//class main//
+
+
+public class Sample {
+    public static void main(String[] args){
+        Student s1 = new Student(); 
+        Student s2 = new Student();
+        
+        s1.setName("Somchai");
+        s2.setName("Somsak");
+        s1.setAge(-19);
+        s2.setAge(20);
+        
+        System.out.println(s1.getName() + " is " + s1.getAge() +" years old.");
+        System.out.println(s2.getName() + " is " + s2.getAge() +" years old.");
+        
+        s1.register();
+        s2.register();
+    } 
+}
+***********************************
+//class 2//
+ 
+
+public class Student {
+    private String name;
+    private int age;  //private ป้องกันไม่ให้ คลาสแม่ ใส่ข้อมูล หรือ ทำให้คลาสแม่ หรือคลาสอื่นๆ ไม่สามารถมองเห็นได้ //ไม่ให้เข้าถึงข้อมูลได้โดยตรง
+    
+    public void setAge(int a){ //set คือ แก้ private
+        if(a > 0)
+        age = a;
+
+    }
+    
+    public int getAge(){
+        return age;
+    }
+    
+    public void setName(String n){
+        name = n;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void register(){
+        System.out.println(name + " is registering.");
+        
+    }
+    
+}
+
+//Running//
+Somchai is 0 years old.
+Somsak is 20 years old.
+Somchai is registering.
+Somsak is registering.
+===================================================================================

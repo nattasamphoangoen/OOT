@@ -1,0 +1,253 @@
+58475875weeek6_2
+run:
+Foo default
+Foo with int
+Foo with String
+public class Sample {
+    public static void main(String[] args){
+        Foo f = new Foo();//Foo ธรรมดาจะทำงาน
+        Foo f1 = new Foo(5);//Foo int ธรรมดาจะทำงาน
+        Foo f2 = new Foo("AAA");//Foo String ธรรมดาจะทำงาน    
+    }   
+}
+public class Foo {
+    public Foo(){ //constructor จะไม่มี void static
+        System.out.println("Foo default");
+    }
+     public Foo(int x){//overloading constructor 
+         System.out.println("Foo with int");
+    }
+     public Foo(String s){//overloading constructor 
+         System.out.println("Foo with String");
+    }
+}
+==============
+public class Foo {
+    public Foo(){ //constructor จะไม่มี void static
+        System.out.println("Foo default");
+    }
+     public Foo(int x){//overloading constructor 
+         System.out.println("Foo with int");
+    }
+     public Foo(String s){//overloading constructor 
+       this();//เรียกFoo default  this(9);เรียกFoo with int และห้ามมีคำสั่งอื่นอยู่ก่อน this();ต้องเป็นคำสั่งแรก
+     
+    }
+}
+==============================================================
+run:
+Foo with int
+abc
+====public class Sample {
+    public static void main(String[] args){
+        Foo f = new Foo("hello");//Foo ธรรมดาจะทำงาน
+  
+       
+    
+        
+    }
+   
+    
+}
+==
+public class Foo {
+    public Foo(){ //constructor จะไม่มี void static
+        System.out.println("Foo default");
+    }
+     public Foo(int x){//overloading constructor 
+         System.out.println("Foo with int");
+    }
+     public Foo(String s){//overloading constructor 
+       this(9);//เรียกFoo default  this(9);เรียกFoo with int
+         System.out.println("abc");
+    }
+}
+***** //this(s);,this("ad");มันะจเรียกจัวเองไปเรื่อยๆไม่รุ้จบ
+==================================================================
+run:
+Foo default
+Boo defult
+===
+public class Sample {
+    public static void main(String[] args){
+        Boo f = new Boo();     
+    }
+   
+}
+===
+public class Boo extends Foo {
+    public Boo(){
+       // super();
+        System.out.println("Boo defult");
+    }
+    
+}
+===
+public class Foo {
+    public Foo(){ //constructor จะไม่มี void static
+        System.out.println("Foo default");
+    }
+     public Foo(int x){//overloading constructor 
+         System.out.println("Foo with int");
+    }
+     public Foo(String s){//overloading constructor 
+       this(9);//เรียกFoo default  this(9);เรียกFoo with int
+         System.out.println("abc");
+        
+    }
+}
+
+==================================================================================
+this();เรียกconstructor ในตลาสเดียวกัน
+super();เรียกconstructor ในคลาสแม่
+================
+
+run:
+Foo default
+Boo defult
+Caz defult
+===
+public class Sample {
+    public static void main(String[] args){
+       Caz f = new Caz();//Foo ธรรมดาจะทำงาน
+  
+       
+    
+        
+    }
+   
+    
+}
+===
+public class Foo {
+    public Foo(){ //constructor จะไม่มี void static
+        System.out.println("Foo default");
+    }
+     public Foo(int x){//overloading constructor 
+         System.out.println("Foo with int");
+    }
+     public Foo(String s){//overloading constructor 
+    
+        
+    }
+}
+===
+public class Boo extends Foo {
+    public Boo(){
+        super(9);
+        System.out.println("Boo defult");
+    }
+    
+}
+====
+public class Caz extends Boo{
+    public Caz(){
+        System.out.println("Caz defult");}
+    
+}
+==================================================================
+run:
+Foo default
+Boo defult
+Caz defult
+=======
+public class Sample {
+    public static void main(String[] args){
+       Caz f = new Caz("Hello");//Foo ธรรมดาจะทำงาน
+  
+       
+    
+        
+    }
+   
+    
+}
+======
+public class Foo {
+    public Foo(){ //constructor จะไม่มี void static
+        System.out.println("Foo default");
+    }
+     public Foo(int x){//overloading constructor 
+         System.out.println("Foo with int");
+    }
+     public Foo(String s){//overloading constructor 
+    
+        
+    }
+}
+======
+public class Boo extends Foo {
+    public Boo(){
+       
+        System.out.println("Boo defult");
+    }
+    
+}
+===
+public class Caz extends Boo{
+    public Caz(){
+        System.out.println("Caz defult");}
+  public Caz(String s){
+        this();
+  }
+}
+=======================================================
+กฎของconstructor 
+super กับthis ห้ามรียกพร้อมกัน
+=====================================================
+run:
+hello
+hi
+8
+hello
+abc
+hello
+1.23
+==========
+public class Sample {
+    public static void main(String[] args){
+       MachineC c = new MachineC(3,5);  
+       MachineB b = new MachineB("abc"); 
+       MachineA a = new MachineA(1.23); 
+       
+    
+        
+    }
+   
+    
+}
+========
+public class MachineA {
+    public MachineA(){
+        System.out.println("hello");
+    }
+      public MachineA(double x){//overloading constructor 
+          this();
+         System.out.println(x);
+    }
+    }
+=========
+public class MachineB extends MachineA {
+    public MachineB(){
+         
+        System.out.println("hi");
+    }
+    public MachineB(String s){
+      
+        System.out.println(s);
+    }
+    
+}
+========
+public class MachineC extends MachineB{
+     public MachineC(int a,int b){
+         System.out.println(a+b);
+    }
+    public MachineC (){
+        super();
+       
+       
+    }
+   
+  
+}

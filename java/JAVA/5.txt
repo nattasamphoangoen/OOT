@@ -1,0 +1,325 @@
+8/12/2558
+========================================================================
+Review
+1. Review input/output, if-else, switch-case and do-while loop.
+
+run.
+Enter a number (1-1000) : 0
+Enter a number (1-1000) : 1001
+Enter a number (1-1000) : 2000
+Enter a number (1-1000) : 1000
+one thousand
+
+Enter a number (1-1000) : 13
+thirteen
+
+Enter a number (1-1000) : 917
+nine hundred and seventeen
+
+code
+
+package project;
+import java.util.Scanner;
+public class Project {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n,a=0,b=0,c=0,d=0;
+        do{
+            System.out.print("Enter a number (1-1000) : ");
+            n = input.nextInt();
+        }while(n<1||n>1000);
+        
+            a = n%10;
+            b = n/10%10;
+            c = n/100%10;
+            d = n/1000;
+        if(d==1)
+            System.out.println("one thousand");
+        
+         switch(c){
+                case 1 : System.out.print("one hundred ");break;
+                case 2 : System.out.print("two hundred ");break;
+                case 3 : System.out.print("three hundred ");break;
+                case 4 : System.out.print("four hundred ");break;
+                case 5 : System.out.print("five hundred ");break;
+                case 6 : System.out.print("six hundred ");break;
+                case 7 : System.out.print("seven hundred ");break;
+                case 8 : System.out.print("eight hundred ");break;
+                case 9 : System.out.print("nine hundred ");break;
+                
+                }      
+          if((c>0&&a>0)||(c>0&&b>0))
+              System.out.print(" and ");
+          
+          if(b==1){
+                switch (a){
+                case 0 : System.out.println("ten");break;
+                case 1 : System.out.println("eleven");break;
+                case 2 : System.out.println("twelve");break;
+                case 3 : System.out.println("thirteen");break;
+                case 4 : System.out.println("fourteen");break;
+                case 5 : System.out.println("fifteen");break;
+                case 6 : System.out.println("sixteen");break;
+                case 7 : System.out.println("seventeen");break;
+                case 8 : System.out.println("eighteen");break;
+                case 9 : System.out.println("nineteen");break;
+                }
+            }
+        
+            else {
+              switch(b){
+                case 2 : System.out.print("twenty ");break;
+                case 3 : System.out.print("thirty ");break;
+                case 4 : System.out.print("fourty ");break;
+                case 5 : System.out.print("fifty ");break;
+                case 6 : System.out.print("sixty ");break;
+                case 7 : System.out.print("seventy ");break;
+                case 8 : System.out.print("eighty ");break;
+                case 9 : System.out.print("ninety ");break;
+                }
+                 switch(a){
+                case 1 : System.out.println("one");break;
+                case 2 : System.out.println("two");break;
+                case 3 : System.out.println("three");break;
+                case 4 : System.out.println("four");break;
+                case 5 : System.out.println("five");break;
+                case 6 : System.out.println("six");break;
+                case 7 : System.out.println("seven");break;
+                case 8 : System.out.println("eight");break;
+                case 9 : System.out.println("nine");break;
+                }
+             }
+    }
+    
+}
+========================================================================
+Review 2: input/output, while,for,if
+
+run
+Enter a number : 5
+11212
+
+run
+Enter a number : 6
+112123
+
+run
+Enter a number : 10
+1121231234
+
+run
+Enter a number : 12
+112123123412
+
+run
+Enter a number : 15
+11212123123412345
+
+code
+
+package project;
+import java.util.Scanner;
+public class Project {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n,a=1,count=0;
+        System.out.print("Enter a number : ");
+        n=input.nextInt();
+        
+        while((a*(a-1))<2*n){
+            a++;
+        }
+        outer:
+        for(int i=1;i<=a;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print(j);
+                count++;
+                if(count==n)
+                    break outer;
+            }
+        }
+    }
+    
+}
+========================================================================
+Review 3: method
+public class Sample{
+	public static void main(String[] args){
+		System.out.println("phase 1");
+		System.out.println("min = "+min(4,19,1,4,3,9,2));
+		System.out.println("phase 2");
+		Utility.square(5);
+		Utility.square(1.2);
+		System.out.println("phase 3");
+		drawBlock(5, '+');
+	}
+}
+
+run
+
+phase 1
+min = 1
+phase 2
+25
+1.44
+phase 3
++++++
++   +
++   +
++   +
++++++
+
+code
+package project;
+import java.util.Scanner;
+import static project.Project.min;
+public class Project {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("phase 1");
+        System.out.println("min = "+min(4,19,1,4,3,9,2));
+	System.out.println("phase 2");
+	Utility.square(5);
+	Utility.square(1.2);
+	System.out.println("phase 3");
+	drawBlock(5, '+');
+    }
+    public static int min(int a,int b,int c,int d ,int e,int f,int g){
+        return min(min(min(min(a,b),min(c,d)),min(e,f)),g);
+    }
+    public static int min(int a,int b){
+        return a<b? a:b;
+    }
+    public static void drawBlock(int a,char b){
+        for(int i=1;i<=a;i++){
+            for(int j=1;j<=a;j++){
+                if(i==a||i==1||j==a||j==1)
+                System.out.print(b);
+                else
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    } 
+}
+
+package project;
+public class Utility {
+    public static void square(int a){
+        System.out.println(a*a);
+    }
+    public static void square(double a){
+        System.out.println(a*a);
+    }
+}
+=========================================================================
+Review 4: array,method,while loop
+public class Project {
+ 	public static void main(String[] args) {
+		int[] num = {3,12,108,4,5,22,371,15};
+		....
+	}
+}
+
+run
+0=1
+1=4
+2=3
+3=2
+4=1
+5=2
+6=0
+7=1
+8=1
+9=0
+
+code
+
+package project;
+import java.util.Scanner;
+public class Project {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] num = {3,12,108,4,5,22,371,15};
+        int[] count = new int[10];
+        
+        for(int i=0;i<num.length;i++){
+            while(num[i]>0){
+                count[num[i]%10]++;
+                num[i]/=10;
+            }
+        }
+        for(int i=0;i<count.length;i++){
+            System.out.println(i+" = "+count[i]);
+        }
+    } 
+}
+=========================================================================
+Review 5.1: 2 dimensional array
+public class Project {
+    	public static void main(String[] args) {
+		int[][] num={{1,3,5},{2,4,8},{9,1,2}};
+		
+	}
+}
+
+run
+0 0 0
+2 4 8
+0 0 2
+
+code
+
+package project;
+import java.util.Scanner;
+public class Project {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[][] num={{1,3,5},{2,4,8},{9,1,2}};
+        for(int i=0;i<num.length;i++){
+            for(int j=0;j<num.length;j++){
+                if(num[i][j]%2==0){
+                    System.out.print(num[i][j]+" ");
+                }
+                else
+                    System.out.print(0+" ");
+            }
+            System.out.println();
+        }
+    } 
+}
+=========================================================================
+Review 5.2: 2 dimensional array
+public class Project {
+    	public static void main(String[] args) {
+		int[][] num={{1,3,5},{2,4,8},{9,1,2}};
+		
+	}
+}
+
+run
+0 0 0
+0 4 0
+0 0 0
+
+code
+
+package project;
+import java.util.Scanner;
+public class Project {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[][] num={{1,3,5},{2,4,8},{9,1,2}};
+        for(int i=0;i<num.length;i++){
+            for(int j=0;j<num.length;j++){
+                if(i==0||i==(num.length)-1||j==0||j==(num.length)-1){
+                    System.out.print(0+" ");
+                }
+                else
+                    System.out.print(num[i][j]+" ");
+            }
+            System.out.println();
+        }
+    } 
+}
+=========================================================================

@@ -1,0 +1,181 @@
+Array
+
+in C language
+
+	int num[10];
+ทำให้มีตัวแปรแบบเลขจำนวนเต็ม 10 ตัวแปร num[0],...,num[9]
+======================================================
+in JAVA
+	
+	int[] num = new int[10];
+ทำให้มีตัวแปรแบบเลขจำนวนเต็ม 10 ตัวแปร num[0],...,num[9] และตัวแปร มีค่าเรื่มต้นเป็น 0
+
+============================================================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        int[] num = {3,5,2,1,4};
+        int max = 0;
+        
+       for(int i = 0 ; i < num.length ; i++)
+           max = max > num[i] ? max:num[i];
+       
+        System.out.print("max = " +max);
+      
+System.out.println();}
+    
+}
+
+//Running
+max = 5
+============================================================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        int[] num = {3,5,2,1,4};
+        int sum = 0;
+
+        System.out.print("sum all member = " +sum((num)));
+        
+System.out.println();}
+    
+    public static int sum(int[] n){
+        int total = 0;
+        for(int i = 0; i < n.length ;i++)
+            total+=n[i];
+        return total;
+          
+    }
+    
+}
+
+//Running
+sum all member = 15
+
+============================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        int[] num = {3,5,2,1,4};
+        int sum = 0;
+
+        System.out.println(countOdd(num));
+        System.out.println(sumOdd(num));
+    }
+    
+    public static int countOdd(int[] n){
+        int count=0;
+        for(int i = 0 ; i < n.length ;i++){
+            if(n[i]%2==1)
+                count++;   
+        }
+    return count;
+    }
+    
+    public static int sumOdd(int[] n){
+        int sum = 0;
+        for(int i = 0 ; i < n.length ;i++){
+            if(n[i]%2==1)
+                sum+=n[i];   
+        }    
+    
+    return sum;     
+    }
+    
+}
+
+//Running
+3
+9
+
+============================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        String[] s = {"ABC","XYZ","LK"};
+        
+        printString(s);
+    }
+    
+    public static void printString(String[] c){
+        
+        for(int i = 0 ; i < c.length ;i++){
+            System.out.println(c[i]);
+        }
+   
+    }
+    
+
+}
+ //Running
+ABC
+XYZ
+LK
+============================================================================================
+==================หรือ=========================================================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        String[] s = {"ABC","XYZ","LK"};
+        
+        printString(s);
+    }
+    
+    public static void printString(String[] c){
+        
+        for(String d : c){
+            System.out.println(d);
+        }
+    }
+}
+
+//ข้อเสีย คือ เข้าถึงสมาชิกทุกตัว จากหน้าไปหลัง เท่านั้น!!!!!!!!!!!!!!!!!!!!!!!!!!!
+============================================================================================
+============================================================================================
+
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        int[] num = {352, 14, 9, 1224};
+        
+        for(int d : num){
+            System.out.println(d + " = " + countDigit(d) + "-digit");         
+        }
+    }
+    
+    public static int countDigit(int n){
+        int count = 0;
+        
+        while(n > 0){
+            count++;
+            n/=10;
+        }     
+    return count;
+    }
+}
+
+//Running
+352 = 3-digit
+14 = 2-digit
+9 = 1-digit
+1224 = 4-digit
+
+============================================================================================
+
+
+
+
+

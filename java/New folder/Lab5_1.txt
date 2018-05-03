@@ -1,0 +1,24 @@
+package sample;
+public class Lab5_1 {
+    public static void main(String[] args){
+        
+        Person p = new Person();
+        Machine m1 = new Machine ("M52N3");
+        Machine m2 = new Machine("M59N5",2015);
+        p.setName("John");
+        m1.setYear(2013);
+        perform(p,m1);
+        perform(p,m2,"JF building");
+        
+    }
+    public static void perform(Person p,Machine m1){
+        System.out.println(p.getName() + " used machine series  "   +  m1.getSeries()+
+           "(" +     m1.getYear() + ")");
+                
+    }
+    public static void perform(Person p,Machine m2,String s){
+        System.out.println(p.getName()+ " used machine seires "  +   m2.getSeries() + 
+                "(" + m2.getYear()+ ")" + "for" + s);
+                
+    }
+}

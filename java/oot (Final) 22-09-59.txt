@@ -1,0 +1,91 @@
+================================================================================================
+
+public class sample {
+    public static void main(String[] args){
+        String s = "hello";
+        
+        System.out.println(s.length());
+        System.out.println(s.charAt(s.length()-1));
+        System.out.println(s.toUpperCase());
+        
+        int size = s.length();
+        for(int i = 0 ; i < size ;i++){
+            if(s.charAt(i) == 'a'||s.charAt(i) == 'e'||s.charAt(i) == 'i' ||
+                    s.charAt(i) == 'o'||s.charAt(i) == 'u'){
+                System.out.print(s.charAt(i));
+            }        
+        }
+        System.out.println();
+        System.out.println("first l is at " +s.indexOf("l"));
+        System.out.println("last l is at " +s.lastIndexOf("l")); 
+        System.out.println();
+    
+    }
+}
+//run:
+5
+o
+HELLO
+eo
+first l is at 2
+last l is at 3
+================================================================================================
+
+public class sample {
+    public static void main(String[] args){
+        
+        String s = "aBc9 z";
+        
+        for(int i = 0; i < s.length(); i++){
+            char ch = s.charAt(i);
+            if(Character.isLetter(ch)){
+                System.out.print(ch + " is letter");
+                
+                if(Character.isUpperCase(ch)){
+                    System.out.println(" uppercase");
+                }else
+                    System.out.println(" lowercase");
+            }
+            else if(Character.isDigit(ch)){
+                System.out.println(ch + " is digit");
+            }
+            else if(Character.isSpace(ch)){
+                System.out.println(ch + " is space");
+            }   
+        }     
+    }
+}
+//run:
+a is letter lowercase
+B is letter uppercase
+c is letter lowercase
+9 is digit
+  is space
+z is letter lowercase
+================================================================================================
+
+public class sample {
+    public static void main(String[] args){
+        
+        String[] s = {"a2b3","b34d1", "10a0"};
+        int sum = 0;
+        
+        for(int i = 0; i < s.length; i++){
+            String str = s[i];
+            String d = "";
+            for(int j = 0; j < str.length(); i++){
+                char ch = str.charAt(j);
+                if(Character.isDigit(ch)){
+                    d = d + ch;
+                }
+ 
+            }
+            System.out.println(i == s.length-1 ? d+"=" : d+"+");
+            sum += Integer.parseInt(d);
+        }
+        System.out.println(sum);
+    }
+}
+//Run
+23+341+100=464
+================================================================================================

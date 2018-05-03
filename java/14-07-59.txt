@@ -1,0 +1,321 @@
+Write a JAVA program to input data and display
+
+Running
+Enter your name : Somsak
+Enter your sex (F/M) : M
+Enter your age : 20
+Enter your GPAX : 2.78
+Somsak's sex is M
+Somsak is 20 years old and will be 21 years old 
+next year
+Somsak's "GPAX" is 2.78
+
+
+   import java.util.Scanner;
+
+
+   Scanner input = new Scanner(System.in);   
+
+   input.nextInt();
+   input.next();
+   input.next().charAt(0);
+   input.nextFloat();
+
+
+
+
+
+
+1.
+Write a JAVA program to input 2 integer data
+and swap value
+
+Running
+Enter the value of a : 15
+Enter the value of b : 67
+before swapping
+a = 15 b = 67
+after swapping
+a = 67 b = 15
+
+   int a, b, temp;
+
+   temp = a;
+   a = b;
+   b = temp;
+   System.out.println("After swapping");
+   System.out.println("a = " + a + " b =  " + b);
+
+=================================================
+
+2.
+Write a JAVA program to input 2 integer data
+and swap value
+
+Running (input 2 digit integer)
+Enter the value of a : 15
+Enter the value of b : 67
+75 + 61 = 136
+
+
+   // input for a and b
+   d2 = a/10;
+   d1 = a%10;
+   e2 = b/10;
+   e1 = b%10;
+   a = e1*10+d1;
+   b = e2*10+d2;
+   System.out.println(a + " + " b + " = " + (a+b));
+
+
+
+3.
+Write a JAVA program to check if a number is odd or
+even
+
+Running
+Enter a number : 12345
+odd
+
+
+
+   /* input data for num */
+
+   System.out.println((num & 1) == 1 ? "odd" : "even");   
+
+
+
+
+
+
+
+
+
+base 10                   base 2
+
+      0                   0000
+      1                   0001
+      2                   0010
+      3                   0011
+      4                   0100
+
+
+
+
+     1100   &
+     0001
+
+        0   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 1  integer
+        byte,  short,  int,   long
+   
+ 2  real number
+        float, double
+
+ 3  character
+        char
+
+ 4  truth vallue
+        boolean
+
+
+
+   short float boolean  int char long  byte double
+
+
+
+
+
+Write a JAVA program to find area of a triangle
+
+Running
+Enter base of triangle : 3
+Enter height of triangle : 9
+Area of this triangle = 0
+
+
+   float base, height, area;
+
+   area = base*height/2;
+
+
+5.
+Write a JAVA program to find hypotenuse of the right
+triangle
+
+Running
+Enter side 1 : 4
+Enter side 2 : 3
+hypotenuse = 5.0
+
+   //input for side1 and side2
+
+   ans = Math.sqrt(side1*side1 + side2*side2);
+
+
+6.
+Write a JAVA program to check if a number is
+3 digit-number
+
+Running
+Enter a number : 134566
+not 3-digit number
+
+Running
+Enter a number : 2
+not 3-digit number
+
+Enter a number : 713
+3-digit number
+
+
+
+1    90   99  100   103    999  1000
+
+
+
+
+
+     if(num > 99 && num < 1000)
+
+============================================
+7
+Write a JAVA program to input number between 2-digit
+and 4-digit
+
+Running
+Enter a number (2-4 digits) : 1
+out of range
+
+Running
+Enter a number (2-4 digits) : 4555547
+out of range
+
+Running
+Enter a number (2-4 digits) : 456
+3 digit
+
+Running
+Enter a number (2-4 digits) : 7845
+4 digit
+
+
+
+
+
+
+
+
+
+  /* input for num */
+
+  if(num >= 10 && num <= 9999) {
+     if(num >= 10 && num <= 99) 
+         System.out.println("2 digit");
+     else if(num >= 100 && num <= 999)
+         System.out.println("3 digit");
+     else 
+         System.out.println("4 digit");
+
+  }
+  else 
+     System.out.println("out of range");
+  
+8.
+Write a JAVA program to input number between 2-digit
+and 4-digit and check if it is palindrome
+
+Running
+Enter a number (2-4 digits) : 12345
+out of range
+
+Running
+Enter a number (2-4 digits) : 9889
+palindrome
+
+Running
+Enter a number (2-4 digits) : 545
+palindrome
+
+Running
+Enter a number (2-4 digits) : 9880
+not palindrome
+
+
+
+
+ /* input for num */
+
+  if(num >= 10 && num <= 9999) {
+     if(num >= 10 && num <= 99) {
+         d2 = num / 10;
+         d1 = num % 10;
+         if(d1 == d2)
+            System.out.println("palindrome");
+         else
+            System.out.println("not palindrome");
+     }
+     else if(num >= 100 && num <= 999) {
+         d3 = num / 100;
+         d1 = num % 10;
+
+     }
+     else 
+         System.out.println("4 digit");
+
+  }
+  else 
+     System.out.println("out of range");
+
+  1551
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,255 @@
+Method มีไว้เพื่อให้สามารถเขียนโปรแกรมเป็นโมดูล เพื่อง่ายในการบำรุงรักษาโปรแกรม
+โดยปกติเราจะเขียน method เพื่อให้ทำงานเฉพาะอย่าง
+การเรียกใช้ method 
+    calling method
+    invoking method
+method ที่ถูกเรียนมีชื่อว่า called method, imvoked method
+  format ของ method มี4 รูปแบบ
+1.ไม่ส่งค่าไป( )-->ไม่มีอะไรในวงเล็บ ไม่ส่งค่ากลับvoid 
+  void xyz()
+--------------------------------
+public class Lab3 {
+    public static void main(String[] args){
+            sayHello();
+            System.out.println("bye");
+    }
+    public static void sayHello(){
+        System.out.println("Hello");
+    }
+}
+--------------------------------
+2. ส่งค่าไป (int x) ไม่ส่งค่ากลับvoid
+  void xyz(int x)
+--------------------------------
+public class Lab3 {
+    public static void main(String[] args){
+            say("hi");
+            System.out.println("bye");
+    }
+    public static void say(String s){
+        System.out.println(s);
+    }
+}
+--------------------------------
+3.ไม่ส่งค่าไป( )-->ไม่มีอะไรในวงเล็บ แต่ส่งค่ากลับ int xyz
+  int xyz()
+--------------------------------
+public class Lab3 {
+    public static void main(String[] args){
+            String  s;
+            s = say();
+            System.out.println(s);
+            System.out.println("bye");
+    }
+    public static String say(){
+        return "Hello";
+        
+    }
+}
+--------------------------------
+**แบบย่อ
+--------------------------------
+public class Lab3 {
+    public static void main(String[] args){
+            System.out.println(say());
+            System.out.println("bye");
+    }
+    public static String say(){
+        return "Hello";
+        
+    }
+}
+--------------------------------
+4.ส่งค่าไป(int x) ส่งค่ากลับ boolean isPalindrom (True||fall)
+  boolean isPalindrom(int x)
+--------------------------------
+import java.util.Scanner;
+public class Lab3 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+            int num;
+            boolean b;
+            System.out.print("Enter a number: ");
+            num = input.nextInt();
+            
+            b = isPalindrome(num);
+            if(b==true)
+                System.out.print("Palindrome");
+            else
+                System.out.print("Not Palindrome");
+    }
+    public static boolean isPalindrome(int n){
+        int sum=0, hold = n;
+        while(n>0){
+            sum=sum*10+n%10;
+            n/=10;
+        }
+        if(sum == hold)
+            return true;
+        else
+            return false;
+    }
+}
+--------------------------------
+**แบบย่อ
+--------------------------------
+import java.util.Scanner;
+public class Lab3 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+            int num;
+            boolean b;
+            System.out.print("Enter a number: ");
+            num = input.nextInt();
+            
+            b = isPalindrome(num);
+            if(b==true)
+                System.out.print("Palindrome");
+            else
+                System.out.print("Not Palindrome");
+    }
+    public static boolean isPalindrome(int n){
+        int sum=0, hold = n;
+        while(n>0){
+            sum=sum*10+n%10;
+            n/=10;
+        }
+        return (sum == hold);
+    }
+}
+--------------------------------
+หรือ
+--------------------------------
+import java.util.Scanner;
+public class Lab3 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+            int num;
+            boolean b;
+            System.out.print("Enter a number: ");
+            num = input.nextInt();
+            
+            b = isPalindrome(num);
+            System.out.println(b ? "Palindrome" : "Not Palindrome"); // b มีค่า true หรือ false ยุแล้ว
+    }
+    public static boolean isPalindrome(int n){
+        int sum=0, hold = n;
+        while(n>0){
+            sum=sum*10+n%10;
+            n/=10;
+        }
+        return (sum == hold);
+    }
+}
+--------------------------------
+หรือ
+--------------------------------
+import java.util.Scanner;
+public class Lab3 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+            int num;
+            System.out.print("Enter a number: ");
+            num = input.nextInt();
+            System.out.println(isPalindrome(num) ? "Palindrome" : "Not Palindrome");
+    }
+    public static boolean isPalindrome(int n){
+        int sum=0, hold = n;
+        while(n>0){
+            sum=sum*10+n%10;
+            n/=10;
+        }
+        return (sum == hold);
+    }
+}
+--------------------------------
+================================
+import java.util.Scanner;
+public class Lab3 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        int num;
+            System.out.print("Enter number : ");
+            num = input.nextInt();
+            printstas(num);
+            
+    }
+    public static void printstas(int a){
+        int i;
+        for(i=0;i<a;i++){
+            System.out.print("*");
+        }  
+    }
+}
+
+ผลการัน...
+Enter a number : 5
+*****
+================================
+================================
+import java.util.Scanner;
+public class Lab3 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        int num1,num2;
+            System.out.print("Enter yhe first number : ");
+            num1 = input.nextInt();
+            System.out.print("Enter the second number : ");
+            num2 = input.nextInt();   
+            System.out.print(sum(num1,num2));
+    }
+    public static int sum(int a,int b){
+        int sum=0;
+        sum = a+b; 
+        return sum;
+    }
+    
+}
+
+ผลการัน...
+Enter the first number : 9
+Enter the second number : 20
+29
+===============================
+===============================
+public class Lab3 {
+    public static void main(String[] args){
+        printLine('*',3);
+        printLine('#',5);
+        System.out.println("=====");
+        printNum(2,5);
+        printNum(9,13);
+        System.out.println(Power(2,3));  
+        System.out.println(Power(3,4));
+}
+    public static void  printLine(char a,int b){
+       for(int i=0;i<b;i++){
+           System.out.print(a);
+       }
+       System.out.println(" ");
+    }    
+    public static void  printNum(int a,int b){
+       for(int i=a;i<=b;i++){
+           System.out.print(a++ + " ");
+           
+       }
+       System.out.println(" ");
+    }  
+    public static int  Power(int a,int b){
+       int result = 1;
+       for(int i=1;i<=b;i++){
+           result *= a;  
+       }
+       return result;
+    }  
+}
+
+ผลการัน...
+***
+#####
+=====
+2 3 4 5
+9 10 11 12 13
+8
+81
+

@@ -1,0 +1,49 @@
+;============= Lab82Wrk.Asm ============
+Data		EQU	20H
+		ORG	8000H
+		JMP	Start
+		ORG	9F45H
+		JMP	Ext_Int1
+		ORG	8100H
+Start:		MOV	IE,#10000100B
+		SETB	IT1
+		MOV	Data,#0
+		MOV	DPTR,#0E060H
+Main_Loop:	MOV	A,Data
+		JNB	Acc.0,JOB_1
+		JB	Acc.0,JOB_2
+		JMP	Main_Loop
+;----------------------------------------
+job_1:		MOV	A,#01100011B		
+		MOVX	@DPTR,A
+		CALL	Delay
+		
+		JMP	Main_Loop
+;----------------------------------------
+job_2:		MOV	A,#01011100B
+		MOVX	@DPTR,A
+		CALL	Delay
+		
+		CALL	Delay
+		JMP	Main_Loop
+;========================================
+Delay:		PUSH	B
+		PUSH	Acc
+		MOV	B,#00H
+		MOV	A,#00H
+_Delay00:	DJNZ	Acc,_Delay00
+		DJNZ	B,_Delay00
+		POP	Acc
+		POP	B
+		RET
+;======================================
+Ext_Int1:	PUSH	Acc
+		MOV	A,Data
+		CPL	A
+		MOV	Data,A
+		CALL	Delay
+		CLR	IE1
+		POP	Acc
+		RETI
+		
+		END

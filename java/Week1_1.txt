@@ -1,0 +1,153 @@
+Course Outline 523232
+1.Introduction to JAVA programming
+2.Control statement
+3.Method 
+4.Array
+5.Class and object
+6.Inherritance and polymorphism
+7.Interface
+8.String and Character
+9.Exception
+10.Collection
+
+Evaluation
+Midterm 30%     3 problems 2hr.
+Final   30%     
+lab test 40%
+Assessment 
+>=80 A
+<=40 F
+=======================================
+Run:
+Suranaree University of Technology
+"SUT" \SUT\ /\/\ SUT /\/\\
+=======================================
+public class Sample {
+    public static void main(String[] args){
+        System.out.println("Suranaree University of Technology");
+        System.out.println("\"SUT\" \\SUT\\ /\\/\\ SUT /\\/\\");
+                
+    }
+    
+}
+===========================
+
+boolean store true or false
+char   use 2 byte 
+double use 8 byte
+===========================
+Run:
+Enter a number :9
+odd
+============================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+       int n;   
+       Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number :");
+        n = input.nextInt();
+        System.out.print(n%2==0?"even":"odd");        
+          }
+    
+}
+============================================
+Run:
+Enter a first number:4
+Enter a second number:8
+max = 8
+min = 4
+==========================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+       int n,m;   
+       Scanner input = new Scanner(System.in);
+        System.out.print("Enter a first number:");
+        n=input.nextInt();
+        System.out.print("Enter a second number:");
+        m=input.nextInt();
+        System.out.print("max = ");
+        System.out.println(n > m ? n : m);
+        System.out.print("min = ");
+        System.out.println(n < m ? n : m);
+        
+    
+    
+    }    
+}
+================================================
+Enter ypur name: Tanutcha
+Enter your age : 20
+Enter your grade :A
+Enter your GPAX : 4.00
+Tanutcha is 20 years old.
+Tanutcha got grade A
+Tanutcha GPAX is 4.0
+====================================
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+       String name;
+       int age;
+       char grade;
+       float gpax;
+       Scanner input= new Scanner(System.in);
+        System.out.print("Enter ypur name: ");
+        name=input.next();
+        System.out.print("Enter your age : ");
+        age=input.nextByte();
+        System.out.print("Enter your grade :");
+        grade=input.next().charAt(0);
+        System.out.print("Enter your GPAX : ");
+        gpax=input.nextFloat();
+        System.out.println(name+" is "+age+" years old.");
+        System.out.println(name+ " got grade "+grade);
+        System.out.println(name+" GPAX is "+gpax);
+ 
+    
+    
+    }    
+}
+
+==============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

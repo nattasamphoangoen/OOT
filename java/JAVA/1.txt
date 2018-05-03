@@ -1,0 +1,230 @@
+teaching plan
+
+week1 9-13Nov Intro.to JAVA, Input/output
+week2 15-20 Nov Control
+week3 23-27 Nov Method (function)
+week4 30-4 Dec Array
+week5 7-11 Dec Review
+week6 14-18 Dec Class and Object
+week7 21-25 Dec Midterm
+week8 28-1 Jan Holiday
+week9 4-8 Jan Inheritance and Polymorphism
+week10 11-15 Jan Interface + String
+week11 18-22 Jan WUNCA --> Review
+week12 25-29 Jan Exception
+week13 1-5 Feb Collaction
+week14 8-12 Feb Final Examination
+
+**ไม่ชดเชย
+
+midterm 30% final 40% lab 30%
+
+Criteria
+>= 80 	A
+...
+...
+< 40 	F 
+
+========================================================================
+cmd 
+ 
+d: ดูไดร์ฟดี
+dir ดูข้อมูลไดเรกเทอรี่ --> list in directorry
+dir\w ดูข้อมูลแบบย่อ --> list in directory (short)
+cls เคลียร์หน้าจอ --> clear screen
+md ชื่อที่ต้องการสร้างไดเรกเทอรี่ = สร้างไดเรกเทอรี่ --> make diractory 
+cd ชื่อไดเรกเทอรี่ = การเข้าไปในไดเรกเทอรี่ --> Change diractory to ...
+cd .. กลับออกมาจากไดเรกเทอรี่ 
+cd \ กลับไปต้นทาง
+rd ชื่อไดเรกเทอรี่ = ลบไดเรกเทอรี่ (ต้องออกจากมาไดเรกเทอรรีนั้นก่อนไปที่ตัวแม่นั้น และต้องไม่มีไฟล์ในไดเรกเทอรี่นั้น)--> remove
+copy con test.txt
+testing --> copy "testing" ลงใน test.txt
+del ลบไฟล์
+..  ถอยหลัง 
+move ย้ายไฟล์
+java -d .. กำหนดเส้นทางปลายทางให้ .class ไปอยู่ที่ไหน
+java -cp   ทางผ่านของ class
+
+d:\
+   |
+   |_priject_
+             |
+	     |_sub 1_
+
+----------------------------------------------------------------------
+practice 1
+d:\
+   |
+   |_project2_
+	      |
+	      |_mysub1_
+	      |	       |_process
+	      |
+	      |_mysub2_
+		       |_test.txt
+
+
+d:\project2\mySub1\process>cd ..
+d:\project2\mySub1\cd ..
+d:\project2>cd mySub2
+d:\project2\mySub2>_
+d:\project2\mySub2>cd..\mySub1\process
+d:\project2\mySub1\process>cd \
+d:\>cd project2\mySub2
+d:\project2\mySub2>copy con test.txt
+test^z --> follow by (ctrl + Z) + enter
+	1 file copied
+d:\project\mySub2>type test.txt
+testing
+d:\project2\mySub2>_
+----------------------------------------------------------------------
+practice2
+
+build directory structure like this
+
+d:\
+  |_project3_
+	     |
+             |_sub1_
+                    |
+                    |_sub2_
+			   |_test1.txt
+			   |_test2.txt
+
+d:\project3\sub1\sub2>type test1.txt
+testing
+d:\project3\sub1\sub2>type test.txt
+testing2
+d:\project3\sub1\sub2>del test2.txt
+d:\project3\sub1\sub2>dir
+...
+...
+d:\project3\sub1\sub2>move test1.txt ..
+d:\project3\sub1\sub2>dir
+...
+...
+d:\project3\sub1\sub2>cd ..
+d:\project3\sub1>dir
+...
+...
+d:\project3\sub1\>copy test1.txt sub2
+======================================================================
+public class Sample{
+	public static void main(String[] args) {
+		System.out.print("Hello World");
+	}
+}
+
+d:\project>javac Sample.java คอมไพล์จะได้ไฟล์เพิ่มมานามสกุล .class
+d:\project>java Sample รัน=
+---------------------------------------------------------------------
+practice3
+
+d:\project>java Sample2
+Hello
+How are you?
+\/\/ and /\/\
+It is nice to meet "you".
+
+code
+
+public class Sample2{
+	public static void main(String[] args) {
+		System.out.print("Hello\nHow are you?\n");
+		System.out.print("\\/\\/ and /\\/\\\nIt is nice to meet \"you\".");
+	}
+}
+
+hint
+
+System.out.println("Hello");
+System.out.println("How are you?");  
+...
+
+======================================================================
+
+data types in JAVA
+
+จำนวนเต็ม
+byte	1 byte use 8 bits	-128 .. 127
+short	2 byte use 16 bits	-32768 .. 32767
+int  	4 byte use 32 bits	-2^31 .. 2^31-1
+long 	8 byte use 64 bits	-2^62 .. 2^62-1
+
+จำนวนจริง
+float	4 byte use 32 bits | store real number
+double	8 byte use 64 bits |
+
+อักษร
+char	2 byte use 16 bits | store character
+
+ค่าความจริง
+boolean ----------> Store true or false
+
+----------------------------------------------------------------------
+public class Sample{
+	public static void main(String[] args) {
+		byte a = 100;
+		short b = 3000;
+		int c = 100000;
+		long d = 10000000;
+		float e = 1.234f
+		double f = 4.12345678;
+		char g ='A';// '\u0041'
+		boolean h = true;
+		String s = "suranaree";
+
+		System.out.println("a = "+ a);//System.out.printf("a = %d\n", a);
+		System.out.println("b = "+ b);//System.out.printf("b = %d\n", b);
+		System.out.println("c = "+ c);//System.out.printf("c = %d\n", c);
+		System.out.println("d = "+ d);//System.out.printf("d = %d\n", d);
+		System.out.println("e = "+ e);//System.out.printf("e = %.2f\n", e);
+		System.out.println("f = "+ f);//System.out.printf("f = %.3f\n", f);
+		System.out.println("g = "+ g);//System.out.printf("g = %c\n", g);
+		System.out.println("h = "+ h);//System.out.printf("h = %b", h);
+		System.out.printf("s = %s", s);
+	}
+}
+
+======================================================================
+
+package comeng.sut; // สร้าง package
+import java.io.Console;
+public class Sample{
+	public static void main(String[] args) {
+		String name,str;
+		int age;
+		char ch;
+		Console input = System.console();
+
+		System.out.print("Enter name : ");
+		name = input.readLine();//enter หยุดรับ
+		System.out.print("Enter age : ");
+		str = input.readLine();
+		age = Integer.valueOf(str);
+		System.out.println(name +" is " + age + " years old.");
+		ch = name.charAt(0);
+		System.out.println("first character is " + ch);
+	}
+}
+-----------------------------------------------------------------------
+d:\
+   |
+   |_project_
+	     |
+	     |_src_
+	     |	   |
+	     |     |_sample.java
+	     |
+	     |_build_
+		     |_comeng_
+			      |_sut_
+				    |_Sample.class
+
+d:\project\build>java -cp . comeng.sut.Sample
+d:\>java -cp project\buile comeng.sut.Sample
+d:\>c:
+c:\>java -cp d:\project\buile comeng.sut.Sample
+d:\project>java -cp buile comeng.sut.Sample
+-----------------------------------------------------------------------
+

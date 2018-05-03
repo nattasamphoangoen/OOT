@@ -1,0 +1,106 @@
+week 5_2
+================
+run:
+Somchai is 20 years old.
+Somsak is 19 years old.
+=================
+public class NewClass {
+    public static void main(String[] args){
+        Student s1 = new Student();
+        Student s2 = new Student("Somsak");
+        s1.setName("Somchai");
+        s1.setAge(20);
+        s2.setAge(19);
+        System.out.println(s1.getName()+" is "+s1.getAge()+" years old." );
+        System.out.println(s2.getName()+" is "+s2.getAge()+" years old.");
+        
+    }
+    
+}
+=============
+public class Student {
+    private String name;
+    private int age;
+    public Student(){
+    }
+    public Student(String name){
+        this.name=name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setAge(int age){
+        this.age=age;
+    }
+    public int getAge(){
+        return age;
+    }   
+}
+=============================================================================
+run:
+Somchai is 20 years old.
+Somsak is 19 years old.
+Somchai use IPAD
+=================
+public class NewClass {
+    public static void main(String[] args){
+        Student s1 = new Student();
+        Student s2 = new Student("Somsak");
+        s1.setName("Somchai");
+        Tablet t1= new Tablet("IPAD");
+        s1.setAge(20);
+        s2.setAge(19);
+        System.out.println(s1.getName()+" is "+s1.getAge()+" years old." );
+        System.out.println(s2.getName()+" is "+s2.getAge()+" years old.");
+        s1.use(t1);
+    }
+    
+}
+
+=====
+public class Student {
+    private String name;
+    private int age;
+    public Student(){//s1
+    }
+    public Student(String name){//s2
+        this.name=name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setAge(int age){
+        this.age=age;
+    }
+    public int getAge(){
+        return age;
+    }
+    public  void use(Tablet x){  //ห้ามมี_static ถ้าเอาออปเจคมีใช้
+        System.out.println(name+" use "+x.getBrand());
+        
+    }
+    
+}
+
+======
+public class Tablet {
+    private String brand;
+    public Tablet(String brand){
+        this.brand=brand;
+    }
+    public String getBrand(){
+       return brand;
+    }
+       public Tablet(){
+       }
+    
+    
+    
+}
+

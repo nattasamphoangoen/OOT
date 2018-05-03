@@ -1,0 +1,49 @@
+int led = 13;
+int PB0;
+int PB1;
+int c=-1;
+void setup() {                
+  pinMode(led, OUTPUT); 
+  Serial.begin(9600);
+  pinMode(2,INPUT_PULLUP);
+  pinMode(4,INPUT_PULLUP);
+}
+
+void loop() {
+PB0 = digitalRead(2);
+PB1 = digitalRead(4);
+
+if(c==-1){digitalWrite(led, LOW);c++;}
+
+Serial.print("SUT = ");
+Serial.println(c);
+
+if(PB0==1){
+delay(1000); c++;}
+if(c==1){digitalWrite(led, 0);}
+else if(c==2){digitalWrite(led, 1);}
+else if(c==3){digitalWrite(led, 0);
+  delay(500);  
+digitalWrite(led, 1);
+  delay(500);  }
+else if(c==4){digitalWrite(led, 1);
+  delay(2000);  
+digitalWrite(led, 0);
+  delay(500); }
+
+if(c==5){c=0;}
+
+/*
+  if(PB1==1){
+   do{digitalWrite(led, HIGH); 
+ }while(PB1==0);
+ Serial.print("Hello ");
+}
+
+ 
+  if(PB0==1){
+    digitalWrite(led, HIGH); 
+  delay(500);   
+  digitalWrite(led, LOW);
+  delay(500);
+    }*/

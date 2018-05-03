@@ -1,0 +1,190 @@
+week 3_2
+import java.util.Scanner;
+public class Sample {
+    public static void main(String[] args){
+        Scanner n =new Scanner(System.in);
+        int num,sum=0,temp,d,ce=0,co=0,c=0;
+        System.out.print("Enter a number : ");
+        num=n.nextInt();
+        temp=num;
+        while(num>0){
+            d=num%10;
+            if(d%2==0)
+                ce++;
+            else
+                co++;
+                
+            sum=sum*10+num%10;
+            num/=10;
+        }
+        if(sum==temp)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+        if(ce>0&&ce>0)
+            System.out.println("mix");
+        else if (co>0&&ce==0)
+            System.out.println("all ood");
+        else if(co==0&&ce>0)
+            System.out.println("all even");
+             
+    }
+}
+=========================================================
+public class NewClass {
+     public static void main(String[] args){
+         System.out.println(max(3,5));
+         System.out.println(max(1.2,4.8));
+         System.out.println(max(1,2,3));
+         System.out.println(max(9,20,5,2));
+         System.out.println(max(1.5,12.4,3.6));
+     }
+     public static int max(int a,int b){
+         return a>b?a:b;
+     }
+     public static double max(double a,double b){
+         return a>b?a:b;
+     }
+      public static int max(int a,int b,int c){
+         return max(max(a,b),c);
+     }
+        public static int max(int a,int b,int c,int d){
+         return max(max(max(a,b),c),d);
+     }
+          public static double max(double a,double b,double c){
+               return max(max(a,b),c);
+     }
+          
+}
+=========================================
+Running:
+****
+****
+****
+****
+AAAAAAAAAAAAAAAAAAA
+####
+####
+####
+####
+==============================
+public class NewClass {
+     public static void main(String[] args){
+         drawBlock(4);
+         System.out.println("AAAAAAAAAAAAAAAAAAA");
+          drawBlock(4,'#');
+                 
+     }
+     public static void drawBlock(int a) {
+         for(int i =0;i<a;i++){
+             for(int j=0;j<a;j++)
+             System.out.print("*");        
+         System.out.println();
+         }
+     }
+    public static void drawBlock(int a,char b){
+         for(int i =0;i<a;i++){
+             for(int j=0;j<a;j++)
+             System.out.print(b);        
+         System.out.println();
+         }
+     }
+          
+}
+================================================
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner n = new Scanner(System.in);
+               
+        drawN(4);
+        System.out.println("AAAAAAAAAA");  
+        drawN(4,'#');
+    }   
+    public static void drawN(int a){ 
+        for(int i =1;i<=a;i++){//มีกี่บรรทัด
+            
+            for(int x=1;x<=a;x++){
+                if(x==1||x==a||x==i)
+                System.out.print("*");//ปริ้นดอกจัน n ตัว
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();//ขึ้นบรรทัดใหม่
+        }
+                                         
+    } 
+    public static void drawN(int a,char b){                
+           for(int i =1;i<=a;i++){//มีกี่บรรทัด
+            
+            for(int x=1;x<=a;x++){
+                if(x==1||x==a||x==i)
+                System.out.print(b);//ปริ้นดอกจัน n ตัว\
+                else
+                    System.out.print(" ");
+                
+            }
+            System.out.println();//ขึ้นบรรทักใหม่
+        }
+    }   
+                                                         
+}
+run:
+*  *
+** *
+* **
+*  *
+AAAAAAAAAA
+#  #
+## #
+# ##
+#  #
+================================================
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner n = new Scanner(System.in);
+               
+        drawN(4);
+        System.out.println("AAAAAAAAAA");  
+        drawN(4,'#');
+    }   
+    public static void drawN(int a){ 
+        for(int i =1;i<=a;i++){//มีกี่บรรทัด
+            
+            for(int j=1;j<=a;j++){
+                if((i+j)==(a+1)||i==1||i==4)
+                System.out.print("*");//ปริ้นดอกจัน n ตัว
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();//ขึ้นบรรทัดใหม่
+        }
+                                         
+    } 
+    public static void drawN(int a,char b){                
+           for(int i =1;i<=a;i++){//มีกี่บรรทัด
+            
+            for(int j=1;j<=a;j++){
+                if((i+j)==(a+1)||i==1||i==4)
+                System.out.print(b);//ปริ้นดอกจัน n ตัว
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();//ขึ้นบรรทัดใหม่
+        }
+    }   
+                                                         
+}
+run:
+****
+  * 
+ *  
+****
+AAAAAAAAAA
+####
+  # 
+ #  
+####
+BUILD SUCCESSFUL (total time: 0 seconds)
+

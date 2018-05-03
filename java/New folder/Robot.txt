@@ -1,0 +1,34 @@
+public class Robot {
+    private String name;
+    private Student s;
+    private int[] n;
+    
+    public Robot(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setOwner(Student s){
+        this.s = s;
+    }
+    public Student getOwner(){
+        return s;
+    }
+    public void findSum(int[] n){
+        int sum=0 ;
+        for(int i = 0; i<n.length; i++){
+            sum += n[i]; 
+        }
+        System.out.println(name+" robot which is owned by "+s.getName()+" find sum = "+sum);
+    }
+    public void printMaxMin(int[] n){
+        int max =n[0],min = n[0];
+        for(int i = 0; i<n.length;i++){
+            max = max > n[i] ? max:n[i];
+            min = min < n[i] ? min:n[i];
+        }
+        System.out.println(name+" robot which is owned by "+s.getName()+" print max = "+max+" min = "+min);
+    }
+    
+}

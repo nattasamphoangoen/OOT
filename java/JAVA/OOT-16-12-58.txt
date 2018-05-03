@@ -1,0 +1,327 @@
+//1.class bird
+====================================
+Running :
+A small black bird weights 0.02 kg.
+A big white bird weights 3.0 kg.
+A small black bird is flying
+A big white bird is flying
+====================================
+package comeng.sut;
+public class NewClass {
+    public static void main(String[] args){
+        Bird b1 = new Bird();
+        Bird b2 = new Bird();
+        b1.color = "black";
+        b1.size = "small"; //if comment this sentense output is null 
+        b1.weight = 0.02; //if comment this sentense output is 0.0 
+        b2.color = "white";
+        b2.size = "big";
+        b2.weight = 3;
+        System.out.println("A " + b1.size + " " + b1.color + " bird weights " + b1.weight + " kg.");
+        System.out.println("A " + b2.size + " " + b2.color + " bird weights " + b2.weight + " kg.");
+        b1.fly();
+        b2.fly();
+    }
+}
+package comeng.sut;
+public class Bird {
+    String color;
+    String size;
+    double weight;
+    public void fly(){
+        System.out.println("A " + size + " " + color + " bird is flying");
+    }
+}
+================================================================================================================
+//2.class student
+=============================
+Running :
+Somsak is 19 years old.
+Somchai is 20 years old.
+Somsak is eating
+Somchai is eating
+=============================
+package comeng.sut;
+public class NewClass {
+    public static void main(String[] args){
+        Student s1 = new Student();
+        Student s2 = new Student();
+        s1.name = "Somsak";
+        s1.age = 19;  
+        s2.name = "Somchai";
+        s2.age = 20;
+        System.out.println(s1.name + " is " + s1.age + " years old.");
+        System.out.println(s2.name + " is " + s2.age + " years old.");
+        s1.eat();
+        s2.eat();
+    }
+}
+package comeng.sut;
+public class Student {
+    String name;
+    int age;
+    public void eat(){
+        System.out.println(name + " is eating");
+    }
+}
+=================================================================================
+//3.class student+private
+===========================
+Running :
+Somsak is 19 years old.
+Somchai is 20 years old.
+Somsak is eating
+Somchai is eating
+============================
+package comeng.sut;
+public class NewClass {
+    public static void main(String[] args){
+        Student s1 = new Student();
+        Student s2 = new Student();
+        //s1.name = "Somsak";
+        //s1.age = 19;  
+        s1.setName("Somsak");
+        s1.setAge(19);
+        //s2.name = "Somchai";
+        //s2.age = 20;
+        s2.setName("Somchai");
+        s2.setAge(20);
+        System.out.println(s1.getName() + " is " + s1.getAge() + " years old.");
+        System.out.println(s2.getName() + " is " + s2.getAge() + " years old.");
+        s1.eat();
+        s2.eat();
+    }
+package comeng.sut;
+public class Student {
+    private String name; //can't change value in variable (no access data)
+    private int age;
+    //will build method change variable another class
+    public void setAge(int a){
+        if(a>0)
+            age=a;
+    }
+    public int getAge(){
+        return age;
+    }
+    public void setName(String n){
+            name = n;
+    }
+    public String getName(){
+        return name;
+    }
+    public void eat(){
+        System.out.println(name + " is eating");
+    }
+}
+======================================================================================
+//4.class tablet+private
+====================
+Running :
+SUMSUNG series TAB S2
+IPAD series AIR 2
+====================
+package comeng.sut;
+public class NewClass {
+    public static void main(String[] args){
+        Tablet a = new Tablet();
+        Tablet b = new Tablet();
+        a.setBrand("SUMSUNG");
+        a.setSeries("TAB S2");
+        b.setBrand("IPAD");
+        b.setSeries("AIR 2");
+        System.out.println(a.getBrand() + " series " + a.getSeries());
+        System.out.println(b.getBrand() + " series " + b.getSeries());
+    }
+}
+package comeng.sut;
+public class Tablet {
+    private String brand;
+    private String series;
+    public void setBrand(String brand){
+        this.brand = brand; //this use when name object same
+    }
+    public void setSeries(String s){
+        series = s;
+    }
+    public String getBrand(){
+        return this.brand; //same brand 
+    }
+    public String getSeries(){
+        return series;
+    }
+}
+===========================================================================================
+//5.class tablet+private+constructor
+package comeng.sut;
+=================================
+Running :
+SUMSUNG series TAB S2
+IPAD series AIR 2
+=================================
+
+public class NewClass {
+    public static void main(String[] args){
+        Tablet a = new Tablet();
+        Tablet b = new Tablet("IPAD","AIR2");
+        a.setBrand("SUMSUNG");
+        a.setSeries("TAB S2");
+        b.setBrand("IPAD");
+        b.setSeries("AIR 2");
+        System.out.println(a.getBrand() + " series " + a.getSeries());
+        System.out.println(b.getBrand() + " series " + b.getSeries());
+    }
+}
+package comeng.sut;
+public class Tablet {
+    private String brand;
+    private String series;
+    public Tablet(){        //no method.It's Constructor
+       this.brand = "Anonymous brand";
+       this.series = "Anonymous series";
+    }
+    public Tablet(String brand,String series){    //overloading
+       this.brand = brand;
+       this.series = series;
+    }
+    public void setBrand(String brand){
+        this.brand = brand; //this use when name object same
+    }
+    public void setSeries(String s){
+        series = s;
+    }
+    public String getBrand(){
+        return this.brand; //same brand 
+    }
+    public String getSeries(){
+        return series;
+    }
+}
+=========================================================================================
+//6.class Dog+pv+cstr+link class student
+=======================================
+Running :
+Owner of dang is Somsak
+dang and keaw are facing
+dang is barking
+keaw bites dang
+=======================================
+package comeng.sut;
+public class NewClass {
+    public static void main(String[] args){
+        Dog d1 = new Dog();
+        Dog d2 = new Dog("keaw");
+        Student s = new Student();
+        s.setName("Somsak");
+        d1.setName("dang");
+        d1.setOwner(s);
+        System.out.println("Owner of " + d1.getName() + " is " + d1.getOwner().getName());
+        System.out.println(d1.getName() + " and " + d2.getName() + " are facing");
+        d1.bark();
+        d2.bite(d1);
+    }
+}
+package comeng.sut;
+public class Dog {
+    private String name;
+    private Student owner; 
+    public Dog(){}
+    public Dog(String name){
+        this.name = name;
+    }
+    public void setOwner(Student owner){
+        this.owner = owner;
+    }
+    public Student getOwner(){
+        return owner;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void bark(){
+        System.out.println(name + " is barking");
+    }
+    public void bite(Dog x){
+        System.out.println(name + " bites " + x.getName());
+    }
+}
+package comeng.sut;
+public class Student {
+    private String name;
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+}
+==========================================================================================
+//6.All in today
+=========================================================
+Running:
+pencil ABC is owner by John
+John is using pencil ABC to draw a square area = 25
+=========================================================
+package comeng.sut;
+public class NewClass {
+    public static void main(String[] args){
+        Student s = new Student("John");
+        Square x = new Square();
+        Pencil p = new Pencil();
+        x.setSide(5);
+        p.setBrand("ABC");
+        p.setOwner(s);
+        System.out.println("pencil " + p.getBrand() + " is owner by " + p.getOwner().getName());
+        s.draw(p,x);
+    }
+}
+package comeng.sut;
+public class Student {
+    private String name;
+    public Student(){}
+    public Student(String name){
+        this.name = name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void draw(Pencil p,Square s){
+        System.out.println(name + " is using pencil " + p.getBrand() + 
+                " to draw a square area = " + s.getArea());
+    }
+}
+package comeng.sut;
+public class Square {
+    private int side;
+    public void setSide(int side){
+        this.side = side;
+    }
+    public int getSide(){
+        return side;
+    }
+    public int getArea(){
+        return side*side;
+    }
+}
+package comeng.sut;
+public class Pencil {
+    private String brand;
+    private Student owner; 
+    public void setOwner(Student owner){
+        this.owner = owner;
+    }
+    public Student getOwner(){
+        return owner;
+    }
+    public void setBrand(String brand){
+        this.brand = brand;
+    }
+    public String getBrand(){
+        return brand;
+    }
+}
